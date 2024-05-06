@@ -21,7 +21,8 @@ _Last Updated: 2023 November 22nd_
 - Users are responsible for any content they share or actions they take while using the Bot.
 
 **5. Privacy and Data Usage**
-- Explain how the Bot collects, uses, and protects user data, if applicable.
+ - We do not collect or store message data
+ - We only store the playfab information of the user and it is deleted after 30 days of the bot not being in the server.
 
 **6. Changes and Updates**
 - The developer reserves the right to modify or discontinue the Bot, temporarily or permanently, with or without notice.
