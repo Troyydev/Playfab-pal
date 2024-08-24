@@ -1,46 +1,45 @@
-Creating a Terms of Service (TOS) for your Discord bot, "PlayFab Pal," involves outlining the rules and guidelines for its use. Here's a basic structure you can follow, keeping in mind that you may need to adjust it according to your bot's specific features and functions:
+Terms of Service for PlayFab Pal Discord Bot
 
----
+Last Updated: 2024 August 24th
 
-**Terms of Service for PlayFab Pal Discord Bot**
+1. Introduction
 
-_Last Updated: 2023 November 22nd
+Welcome to PlayFab Pal! These terms of service ("Terms") govern your use of PlayFab Pal (the "Bot"), a Discord bot designed to enhance your gaming experience on Discord servers.
+2. Acceptance of Terms
 
-**1. Introduction**
-- Welcome to PlayFab Pal! These terms of service ("Terms") govern your use of PlayFab Pal (the "Bot"), a Discord bot designed to enhance your gaming experience on Discord servers.
+By adding or using the Bot in any Discord server, you agree to be bound by these Terms.
+3. Description of Service
 
-**2. Acceptance of Terms**
-- By adding or using the Bot in any Discord server, you agree to be bound by these Terms.
+PlayFab Pal provides easy access to PlayFab and running commands.
+4. User Responsibilities
 
-**3. Description of Service**
-- PlayFab Pal provides easy access to playfab and running cmds.
+Users must comply with Discord's Terms of Service and Community Guidelines.
+Users should not use the Bot to conduct any illegal activities or to harass, abuse, or harm others.
+Users are responsible for any content they share or actions they take while using the Bot.
+5. Privacy and Data Usage
 
-**4. User Responsibilities**
-- Users must comply with Discord's Terms of Service and Community Guidelines.
-- Users should not use the Bot to conduct any illegal activities or to harass, abuse, or harm others.
-- Users are responsible for any content they share or actions they take while using the Bot.
+The Bot may collect and use user data as described in the Privacy Policy. Please review the Privacy Policy for more details on how your data is handled.
+6. Blacklist and Legal Consequences
 
-**5. Privacy and Data Usage**
-- Explain how the Bot collects, uses, and protects user data, if applicable.
+Users who engage in activities deemed harmful, disruptive, or in violation of these Terms may be placed on a blacklist, restricting their access to the Bot.
+Breaching this blacklist, including any attempt to circumvent restrictions or unauthorized access, will result in legal action being taken against the violator.
+The developer reserves the right to seek damages and other remedies available under the law.
+7. Changes and Updates
 
-**6. Changes and Updates**
-- The developer reserves the right to modify or discontinue the Bot, temporarily or permanently, with or without notice.
-- The Terms may be updated from time to time. Continued use of the Bot after such changes constitutes acceptance of the new Terms.
+The developer reserves the right to modify or discontinue the Bot, temporarily or permanently, with or without notice.
+These Terms may be updated from time to time. Continued use of the Bot after such changes constitutes acceptance of the new Terms.
+8. Intellectual Property
 
-**7. Intellectual Property**
-- All rights, title, and interest in and to the Bot, including all associated intellectual property rights, are and will remain the property of the Bot developer.
+All rights, title, and interest in and to the Bot, including all associated intellectual property rights, are and will remain the property of the Bot developer.
+9. Limitation of Liability
 
-**8. Limitation of Liability**
-- The Bot is provided "as is" and "as available" without any warranties. The developer will not be liable for any damages or losses arising from the use of the Bot.
+The Bot is provided "as is" and "as available" without any warranties. The developer will not be liable for any damages or losses arising from the use of the Bot.
+10. Termination
 
-**9. Termination**
-- The developer reserves the right to terminate or suspend access to the Bot for any user who violates these Terms.
+The developer reserves the right to terminate or suspend access to the Bot for any user who violates these Terms.
+11. Governing Law
 
-**10. Governing Law**
-- These Terms are governed by UK law.
+These Terms are governed by UK law.
+12. Contact Information
 
-**11. Contact Information**
-- For any questions or concerns regarding these Terms or the Bot, please support@troyyhelps.co.uk.
-
----
-
+For any questions or concerns regarding these Terms or the Bot, please contact admin@troyyhelps.co.uk.
