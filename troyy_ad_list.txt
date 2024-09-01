@@ -56,3 +56,5 @@ iadsdk.apple.com
 metrics.icloud.com
 metrics.mzstatic.com
 notes-analytics-events.apple.com
+fwtracks.freshmarketer.com
+samsung-com.112.2o7.net
