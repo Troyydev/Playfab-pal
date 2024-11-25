@@ -1,40 +1,107 @@
 Terms of Service for PlayFab Pal Discord Bot
-Last Updated: 2024 August 24th
+Last Updated: 2024 November 25th
 
 1. Introduction
-Welcome to PlayFab Pal! These terms of service ("Terms") govern your use of PlayFab Pal (the "Bot"), a Discord bot designed to enhance your gaming experience on Discord servers.
+Welcome to PlayFab Pal! These terms of service ("Terms") govern your use of PlayFab Pal (the "Bot"), a Discord bot designed to enhance your gaming experience by integrating with PlayFab services. By accessing or using the Bot, you agree to abide by these Terms in full. PlayFab Pal is designed to facilitate various gaming features, enhance community interaction, and provide streamlined commands for managing PlayFab integration within your Discord server.
+
+We strongly encourage all users to carefully read and understand these Terms before using the Bot. Your use of the Bot constitutes your agreement to these Terms. If you do not agree with any part of these Terms, you must refrain from using the Bot and immediately remove it from your server.
+
+By using PlayFab Pal, you also agree to allow the developers of the Bot to contact you directly via the Bot itself for urgent matters. These communications are solely intended for critical updates, important notifications, or to address issues requiring immediate attention.
 
 2. Acceptance of Terms
-By adding or using the Bot in any Discord server, you agree to be bound by these Terms. By using the Bot, you also agree that developers may DM you via the Bot for urgent matters.
+By adding the Bot to any Discord server or by using the Bot in any capacity, you confirm that you have read, understood, and agree to be bound by these Terms. Additionally, you acknowledge that your use of the Bot is also subject to Discord's Terms of Service and Community Guidelines.
+
+The Bot's developers reserve the right to update these Terms at any time. Continued use of the Bot after an update constitutes acceptance of the revised Terms. You are encouraged to periodically review the Terms to ensure you remain informed of any changes.
 
 3. Description of Service
-PlayFab Pal provides easy access to PlayFab and running commands.
+PlayFab Pal provides various functionalities to enhance the gaming experience of Discord users and server communities. Some of the key features include:
+
+PlayFab Integration: Seamless connection and interaction with PlayFab to manage gaming data.
+Server Commands: Tools and commands to streamline server management and interaction.
+Enhanced Gameplay: Features designed to engage and entertain users in a server environment.
+User Support: Assistance with managing user progress, keys, and data related to PlayFab.
+Please note that while the Bot aims to provide reliable services, there may be instances of downtime, errors, or disruptions. These interruptions may occur due to maintenance, technical issues, or other unforeseen circumstances. The developers will make reasonable efforts to address such issues promptly but do not guarantee uninterrupted service.
 
 4. User Responsibilities
-Users must comply with Discord's Terms of Service and Community Guidelines.
-Users should not use the Bot to conduct any illegal activities or to harass, abuse, or harm others.
-Users are responsible for any content they share or actions they take while using the Bot.
+As a user of PlayFab Pal, you agree to adhere to the following responsibilities:
+
+Compliance with Discord Policies:
+Users must comply with all applicable rules and policies set forth by Discord, including but not limited to their Terms of Service and Community Guidelines.
+
+Prohibited Activities:
+
+Do not use the Bot to engage in illegal activities.
+Do not use the Bot to harass, abuse, or harm others.
+Do not attempt to exploit or manipulate the Bot's functionality for malicious purposes.
+Content Responsibility:
+Users are solely responsible for any content they generate, share, or manage while using the Bot. The developers of the Bot do not monitor user activity and are not liable for any inappropriate or harmful content shared by users.
+
+Server Management:
+Server administrators must ensure proper usage of the Bot within their communities and take action against misuse by their members.
+
 5. Privacy and Data Usage
-The Bot may collect and use user data as described in the Privacy Policy. Please review the Privacy Policy for more details on how your data is handled.
+PlayFab Pal collects and processes certain user data to provide its services effectively. By using the Bot, you consent to the collection, storage, and use of data as outlined in our Privacy Policy. Key points include:
+
+Data Collected:
+
+Usernames, Discord IDs, and server information.
+Data related to PlayFab keys and codes for integration purposes.
+Interaction logs to improve Bot performance and functionality.
+Purpose of Data Collection:
+
+To provide and maintain the Bot's services.
+To ensure smooth integration with PlayFab.
+To analyze usage patterns and improve user experience.
+Data Retention:
+User data is retained only for as long as necessary to fulfill the purposes outlined in this section.
+
+Data Security:
+The developers implement reasonable security measures to protect user data. However, no method of electronic storage is completely secure, and users acknowledge that there is always a risk of data breaches.
+
+For more details, please refer to our Privacy Policy.
 
 6. Blacklist and Legal Consequences
-Users who engage in activities deemed harmful, disruptive, or in violation of these Terms may be placed on a blacklist, restricting their access to the Bot.
-Breaching this blacklist, including any attempt to circumvent restrictions or unauthorized access, will result in legal action being taken against the violator.
-The developer reserves the right to seek damages and other remedies available under the law.
+To maintain the integrity of the Bot and ensure a positive experience for all users, the developers reserve the right to blacklist users or servers under the following circumstances:
+
+Blacklist Criteria:
+
+Engaging in harmful, disruptive, or abusive activities.
+Violating these Terms or Discord's Terms of Service.
+Attempting to exploit or manipulate the Bot.
+Consequences of Blacklisting:
+
+Restricted access to the Bot and its services.
+Permanent bans for repeat offenders.
+Legal Action:
+Any attempt to breach the blacklist, circumvent restrictions, or gain unauthorized access to the Bot will result in legal action. The developers may pursue damages and other remedies under applicable laws.
+
 7. Changes and Updates
-The developer reserves the right to modify or discontinue the Bot, temporarily or permanently, with or without notice.
-These Terms may be updated from time to time. Continued use of the Bot after such changes constitutes acceptance of the new Terms.
+The developers of PlayFab Pal reserve the right to:
+
+Modify or discontinue any feature of the Bot temporarily or permanently, with or without prior notice.
+Update these Terms periodically to reflect changes in the Bot's functionality, legal requirements, or user feedback.
+You are responsible for staying informed about any updates to the Terms. Continued use of the Bot after an update constitutes your acceptance of the revised Terms.
+
 8. Intellectual Property
-All rights, title, and interest in and to the Bot, including all associated intellectual property rights, are and will remain the property of the Bot developer.
+All intellectual property rights associated with the Bot, including but not limited to its code, design, and functionality, are owned by the developers. Users are not granted any ownership rights to the Bot or its components.
+
+You may not reproduce, distribute, or modify any part of the Bot without explicit written permission from the developers.
 
 9. Limitation of Liability
-The Bot is provided "as is" and "as available" without any warranties. The developer will not be liable for any damages or losses arising from the use of the Bot.
+The Bot is provided on an "as is" and "as available" basis. The developers make no warranties regarding the Bot's performance, reliability, or compatibility with all server configurations.
+
+To the maximum extent permitted by law, the developers will not be liable for any damages, losses, or liabilities arising from the use or inability to use the Bot. This includes, but is not limited to, data loss, server disruptions, or user disputes.
 
 10. Termination
-The developer reserves the right to terminate or suspend access to the Bot for any user who violates these Terms.
+The developers reserve the right to terminate or suspend access to the Bot for any user or server found in violation of these Terms. Termination may occur without prior notice and at the sole discretion of the developers.
+
+Upon termination, any data associated with the terminated user or server may be deleted.
 
 11. Governing Law
-These Terms are governed by UK law.
+These Terms are governed by and construed in accordance with the laws of the United Kingdom. Any disputes arising from or related to these Terms will be subject to the exclusive jurisdiction of UK courts.
 
 12. Contact Information
-For any questions or concerns regarding these Terms or the Bot, please contact admin@troyyhelps.co.uk.
+For any questions, concerns, or support requests regarding PlayFab Pal, please contact us at admin@troyyhelps.co.uk.
+
+If you encounter urgent issues or require immediate assistance, the developers may contact you directly via the Bot for resolution purposes.
+
