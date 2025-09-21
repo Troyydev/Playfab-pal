@@ -1,68 +1,175 @@
 (function(C, le, D, f, s, t, w, I, N, A, de, y, S, fe) {
     "use strict";
 
-    // Pull FormSection from vendetta.ui.components
-    const { FormSection: ge } = N.Forms;
+    // ---------- UI/Metro pulls ----------
+    const { FormSection: ge, FormRow: FormRow, FormRadioRow: FormRadioRow } = N.Forms;
+    const ThemeStore = s.findByStoreName("ThemeStore");
+    const ColorsMod = s.findByProps("colors", "unsafe_rawColors");
+    const ColorRuntime = ColorsMod?.internal ?? ColorsMod?.meta;
+    const TextSS = s.findByProps("TextStyleSheet")?.TextStyleSheet ?? {};
+    const { View, Text, Pressable } = N.General;
 
-    // Hooks into User Settings view
-    const he = s.findByName("getScreens");
-    const Re = s.findByName("UserSettingsOverviewWrapper", !1);
+    // ActionSheet
+    const ActionSheetMod = s.findByProps("ActionSheet")?.ActionSheet ?? s.find(e => e.render?.name === "ActionSheet");
+    const LazySheet = s.findByProps("openLazy", "hideActionSheet");
+    const { openLazy: openSheet, hideActionSheet: hideSheet } = LazySheet;
+    const {
+        ActionSheetTitleHeader,
+        ActionSheetCloseButton,
+        ActionSheetContentContainer
+    } = s.findByProps("ActionSheetTitleHeader", "ActionSheetCloseButton", "ActionSheetContentContainer") ?? {};
 
-    // Themed stylesheet
-    const pe = t.stylesheet.createThemedStyleSheet({
-        container: {
+    // Settings search (optional; older builds may not expose these)
+    const SearchControls = s.findByProps("useSearchControls") || null;
+    const SearchQuery = s.findByProps("useSettingSearchQuery") || null;
+    const SettingSearchBar = s.findByName("SettingSearchBar") || null;
+
+    // User stuff (for author chips)
+    const { showUserProfile } = s.findByProps("showUserProfile") ?? {};
+    const { fetchProfile } = s.findByProps("fetchProfile") ?? {};
+    const UserStore = s.findByStoreName("UserStore") ?? {};
+
+    // Misc
+    const getScreens = s.findByName("getScreens");
+    const UserSettingsOverviewWrapper = s.findByName("UserSettingsOverviewWrapper", !1);
+    const StorageEmitterKey = Symbol.for("vendetta.storage.emitter");
+
+    // ---------- Config ----------
+    const THEMES_URL = "https://troyydev.github.io/Playfab-pal/theme/themes-full.json";
+    const vstorage = le.storage;
+
+    // ---------- Theming helpers ----------
+    const themed = t.stylesheet.createThemedStyleSheet({
+        screen: {
             flex: 1,
             backgroundColor: I.semanticColors.BACKGROUND_MOBILE_PRIMARY
-        }
+        },
+        listPad: { paddingHorizontal: 12, paddingBottom: 24 },
+        chipWrap: { marginRight: 10, flexGrow: 0 },
+        chip: {
+            backgroundColor: I.semanticColors.REDESIGN_BUTTON_PRIMARY_BACKGROUND,
+            borderRadius: 12,
+            paddingHorizontal: 8,
+            paddingVertical: 2
+        },
+        card: {
+            backgroundColor: I.semanticColors.BACKGROUND_SECONDARY,
+            borderRadius: 12,
+            overflow: "hidden",
+            marginBottom: 12,
+            borderColor: I.semanticColors.BACKGROUND_TERTIARY,
+            borderWidth: 1
+        },
+        cardHeader: {
+            paddingHorizontal: 12,
+            paddingVertical: 10,
+            backgroundColor: I.semanticColors.BACKGROUND_TERTIARY,
+            flexDirection: "row",
+            alignItems: "center"
+        },
+        cardIconCircle: {
+            width: 28, height: 28, borderRadius: 14,
+            alignItems: "center", justifyContent: "center",
+            backgroundColor: I.semanticColors.BACKGROUND_SECONDARY_ALT,
+            marginRight: 10
+        },
+        cardBody: { paddingHorizontal: 12, paddingVertical: 10 },
+        cardActions: { flexDirection: "row-reverse", alignItems: "center", paddingHorizontal: 12, paddingBottom: 10 },
+        badgeRow: { flexDirection: "row", alignItems: "center", marginRight: 6 },
+        headerRightRow: { flexDirection: "row-reverse" },
+        empty: { flex: 1, alignItems: "center", justifyContent: "center" }
     });
 
-    /**
-     * Injects a row + route into User Settings
-     */
-    function ye(shouldInsert, renderRow, route) {
+    function resolveColor(semantic, theme = ThemeStore.theme) {
+        return ColorRuntime.resolveSemanticColor(theme, semantic);
+    }
+
+    // ---------- Tiny typographic helpers ----------
+    function TText({ variant, color, numberOfLines, style, onPress, children }) {
+        const base = variant ? TextSS[variant] : null;
+        return t.React.createElement(Text, {
+            style: [
+                base || {},
+                color ? { color: resolveColor(I.semanticColors[color]) } : {},
+                style || {}
+            ],
+            numberOfLines,
+            onPress
+        }, children);
+    }
+
+    function Chip({ text, color = "TEXT_NORMAL", ml }) {
+        return t.React.createElement(
+            View, { style: [themed.chipWrap, ml ? { marginLeft: 16, marginRight: 0 } : null] },
+            t.React.createElement(View, { style: themed.chip },
+                t.React.createElement(TText, { variant: "eyebrow", color }, text)
+            )
+        );
+    }
+
+    function IconButton({ onPress, onLongPress, icon, kind = "card", destructive = !1 }) {
+        const styles = t.stylesheet.createThemedStyleSheet({
+            header: {
+                width: 24, height: 24, marginRight: 10,
+                tintColor: I.semanticColors.HEADER_PRIMARY
+            },
+            card: {
+                width: 22, height: 22, marginLeft: 8,
+                tintColor: I.semanticColors.INTERACTIVE_NORMAL
+            },
+            danger: { tintColor: I.semanticColors.TEXT_DANGER }
+        });
+        const style = kind === "header" ? styles.header : styles.card;
+
+        return t.React.createElement(
+            t.ReactNative.TouchableOpacity, { onPress, onLongPress },
+            t.React.createElement(t.ReactNative.Image, {
+                style: [style, destructive && styles.danger],
+                source: icon
+            })
+        );
+    }
+
+    // ---------- Settings injection ----------
+    function injectSettingRow(shouldInsert, renderRow, route) {
         const unpatchers = [];
 
-        // Attach to UserSettingsOverview so we can insert our row
-        const unpatchOverview = w.after("default", Re, function(_args, res) {
+        const unpatchOverview = w.after("default", UserSettingsOverviewWrapper, function(_a, res) {
             unpatchOverview();
-            const overview = A.findInReactTree(res.props.children, h => h.type && h.type.name === "UserSettingsOverview");
-            unpatchers.push(
-                w.after("render", overview.type.prototype, function(_args2, renderRes) {
-                    let { props: { children } } = renderRes;
-                    const stopAfter = [t.i18n.Messages.BILLING_SETTINGS, t.i18n.Messages.PREMIUM_SETTINGS];
-                    // Find the FormSection list we can mutate
-                    children = A.findInReactTree(children, d => d.children[1].type === ge).children;
 
-                    // Figure where to insert (before Billing/Premium if present, else index 4 like stock)
-                    const insertIndex = children.findIndex(d => stopAfter.includes(d?.props.label));
-                    if (shouldInsert()) {
-                        children.splice(insertIndex === -1 ? 4 : insertIndex, 0, renderRow({}));
-                    }
+            const overview = A.findInReactTree(res.props.children, h => h.type && h.type.name === "UserSettingsOverview");
+
+            unpatchers.push(
+                w.after("render", overview.type.prototype, function(_args, rendered) {
+                    let { props: { children } } = rendered;
+                    const stopAfter = [t.i18n.Messages.BILLING_SETTINGS, t.i18n.Messages.PREMIUM_SETTINGS];
+                    const list = A.findInReactTree(children, d => d?.children?.[1]?.type === ge)?.children ?? [];
+
+                    const insertIndex = list.findIndex(d => stopAfter.includes(d?.props?.label));
+                    if (shouldInsert()) list.splice(insertIndex === -1 ? 4 : insertIndex, 0, renderRow({}));
                 })
             );
         }, !0);
+        unpatchers.push(unpatchOverview);
 
-        if (unpatchers.push(unpatchOverview), he && route) {
-            // Create a unique settings key + route for Theme Browser
+        if (getScreens && route) {
             const routeKey = `VENDETTA_THEME_${t.lodash.snakeCase(route.key).toUpperCase()}`;
-            const PageComponent = route.page.render;
+            const Page = route.page.render;
 
             const ScreenWrapper = t.React.memo(function({ navigation }) {
-                const unsub = navigation.addListener("focus", function() {
-                    unsub();
+                const off = navigation.addListener("focus", function() {
+                    off();
                     navigation.setOptions(A.without(route.page, "noErrorBoundary", "render"));
                 });
-
                 return t.React.createElement(
-                    t.ReactNative.View,
-                    { style: pe.container },
+                    t.ReactNative.View, { style: themed.screen },
                     route.page.noErrorBoundary
-                        ? t.React.createElement(PageComponent, null)
-                        : t.React.createElement(N.ErrorBoundary, null, t.React.createElement(PageComponent, null))
+                        ? t.React.createElement(Page, null)
+                        : t.React.createElement(N.ErrorBoundary, null, t.React.createElement(Page, null))
                 );
             });
 
-            const ROUTE_CONFIGS = {
+            const ROUTE_CONFIG = {
                 [routeKey]: {
                     type: "route",
                     title: () => route.title,
@@ -75,21 +182,34 @@
                 }
             };
 
-            // Helpers to thread our custom route into multiple settings surfaces
-            const patchSectionList = function(list, isSearchable) {
-                const copy = [...list];
-                const sections = isSearchable ? copy?.[0]?.sections : copy;
+            const stitchVendettaBucket = (arr, searchable) => {
+                const list = [...arr];
+                const sections = searchable ? list?.[0]?.sections : list;
                 if (!Array.isArray(sections)) return sections;
-
-                const bucket = "Vendetta";
-                const vendettaSection = sections.find(B => B?.title === bucket || B?.label === bucket);
-                if (vendettaSection && !vendettaSection?.settings?.includes(routeKey)) {
-                    vendettaSection.settings.push(routeKey);
-                }
-                return copy;
+                const bucket = sections.find(x => x?.title === "Vendetta" || x?.label === "Vendetta");
+                if (bucket && !bucket.settings.includes(routeKey)) bucket.settings.push(routeKey);
+                return list;
             };
 
-            const patchSearchAndConfigs = function() {
+            const patchSearchablePath = (() => {
+                const SearchableList = s.findByProps("SearchableSettingsList");
+                const SingleConfig = s.findByProps("SETTING_RENDERER_CONFIG");
+                const listItemsMod = s.findByProps("getSettingListItems");
+                if (!SearchableList || !SingleConfig || !listItemsMod) return !1;
+
+                unpatchers.push(w.before("type", SearchableList.SearchableSettingsList, P => stitchVendettaBucket(P, !0)));
+                unpatchers.push(w.after("getSettingListSearchResultItems", listItemsMod, (_a, results) => {
+                    for (const r of results) if (r.setting === routeKey) r.breadcrumbs = ["Vendetta"];
+                }));
+
+                const prev = SingleConfig.SETTING_RENDERER_CONFIG;
+                SingleConfig.SETTING_RENDERER_CONFIG = { ...prev, ...ROUTE_CONFIG };
+                unpatchers.push(() => { SingleConfig.SETTING_RENDERER_CONFIG = prev; });
+
+                return !0;
+            })();
+
+            if (!patchSearchablePath) {
                 const overview = s.findByProps("useOverviewSettings");
                 const titles = s.findByProps("getSettingTitleConfig");
                 const registry = s.findByProps("SETTING_RELATIONSHIPS", "SETTING_RENDERER_CONFIGS");
@@ -97,266 +217,87 @@
                 const FN_LIST = "getSettingListItems";
                 const searchMod = s.findByProps(FN_SEARCH) || s.findByProps(FN_LIST);
                 const searchFnName = s.findByProps(FN_SEARCH) ? FN_SEARCH : FN_LIST;
-
-                if (!searchMod || !overview) return !1;
-
-                // Overview list bucket
-                unpatchers.push(
-                    w.after("useOverviewSettings", overview, function(args, ret) {
-                        return patchSectionList(ret);
-                    })
-                );
-
-                // Title config
-                unpatchers.push(
-                    w.after("getSettingTitleConfig", titles, function(_a, ret) {
-                        return { ...ret, [routeKey]: route.title };
-                    })
-                );
-
-                // Search result mapping
-                unpatchers.push(
-                    w.after(searchFnName, searchMod, function(args, ret) {
-                        let [requested] = args;
+                if (overview && titles && registry && searchMod) {
+                    unpatchers.push(w.after("useOverviewSettings", overview, (_a, ret) => stitchVendettaBucket(ret)));
+                    unpatchers.push(w.after("getSettingTitleConfig", titles, (_a, ret) => ({ ...ret, [routeKey]: route.title })));
+                    unpatchers.push(w.after(searchFnName, searchMod, (args, ret) => {
+                        const [requested] = args;
                         return [
-                            ...requested.includes(routeKey)
-                                ? [{
-                                      type: "setting_search_result",
-                                      ancestorRendererData: ROUTE_CONFIGS[routeKey],
-                                      setting: routeKey,
-                                      title: () => route.title,
-                                      breadcrumbs: ["Vendetta"],
-                                      icon: ROUTE_CONFIGS[routeKey].icon
-                                  }]
-                                : [],
+                            ...(requested.includes(routeKey) ? [{
+                                type: "setting_search_result",
+                                ancestorRendererData: ROUTE_CONFIG[routeKey],
+                                setting: routeKey,
+                                title: () => route.title,
+                                breadcrumbs: ["Vendetta"],
+                                icon: ROUTE_CONFIG[routeKey].icon
+                            }] : []),
                             ...ret
                         ];
-                    })
-                );
+                    }));
 
-                // Plug our route configs into the registry
-                const oldRel = registry.SETTING_RELATIONSHIPS;
-                const oldCfg = registry.SETTING_RENDERER_CONFIGS;
-
-                registry.SETTING_RELATIONSHIPS = { ...oldRel, [routeKey]: null };
-                registry.SETTING_RENDERER_CONFIGS = { ...oldCfg, ...ROUTE_CONFIGS };
-
-                unpatchers.push(function() {
-                    registry.SETTING_RELATIONSHIPS = oldRel;
-                    registry.SETTING_RENDERER_CONFIGS = oldCfg;
-                });
-
-                return !0;
-            };
-
-            (function() {
-                // Patch SearchableSettingsList path too
-                const Searchable = s.findByProps("SearchableSettingsList");
-                const SingleConfig = s.findByProps("SETTING_RENDERER_CONFIG");
-                const listItems = s.findByProps("getSettingListItems");
-                if (!listItems || !Searchable || !SingleConfig) return !1;
-
-                unpatchers.push(
-                    w.before("type", Searchable.SearchableSettingsList, P => patchSectionList(P, !0))
-                );
-
-                unpatchers.push(
-                    w.after("getSettingListSearchResultItems", listItems, function(_args, results) {
-                        for (const r of results) {
-                            if (r.setting === routeKey) r.breadcrumbs = ["Vendetta"];
-                        }
-                    })
-                );
-
-                const old = SingleConfig.SETTING_RENDERER_CONFIG;
-                SingleConfig.SETTING_RENDERER_CONFIG = { ...old, ...ROUTE_CONFIGS };
-                unpatchers.push(() => { SingleConfig.SETTING_RENDERER_CONFIG = old; });
-
-                return !0;
-            })() || patchSearchAndConfigs();
-        }
-
-        return function() {
-            return unpatchers.forEach(fn => fn());
-        };
-    }
-
-    // ThemeStore for semantics
-    const Se = s.findByStoreName("ThemeStore");
-
-    // Colors, typography
-    const Y = s.findByProps("colors", "unsafe_rawColors");
-    const Ee = Y?.internal ?? Y?.meta;
-    const Ne = s.findByProps("TextStyleSheet").TextStyleSheet;
-    const { View: Xe, Text: Z, Pressable: Qe } = N.General;
-
-    // ActionSheet bits
-    const Ie = s.findByProps("ActionSheet")?.ActionSheet ?? s.find(e => e.render?.name === "ActionSheet");
-    const ve = s.findByProps("openLazy", "hideActionSheet");
-    const { openLazy: Pe, hideActionSheet: Te } = ve;
-    const { ActionSheetTitleHeader: we, ActionSheetCloseButton: Be, ActionSheetContentContainer: Ce } =
-        s.findByProps("ActionSheetTitleHeader", "ActionSheetCloseButton", "ActionSheetContentContainer");
-
-    // Search controls (may not exist on some builds)
-    const K = s.findByProps("useSearchControls") || null;
-    const G = s.findByProps("useSettingSearchQuery") || null;
-    const AeFound = s.findByName("SettingSearchBar") || null;
-
-    function be(semantic, theme = Se.theme) {
-        return Ee.resolveSemanticColor(theme, semantic);
-    }
-
-    function _e(component, props) {
-        try {
-            Pe(new Promise(r => r({ default: component })), "ActionSheet", props);
-        } catch (err) {
-            D.logger.error(err.stack);
-            y.showToast("Got error when opening ActionSheet! Please check debug logs", f.getAssetIDByName("Smal"));
-        }
-    }
-
-    // Hook to wire advanced search control (with graceful fallbacks)
-    const W = function(ctx) {
-        const q = G?.useSettingSearchQuery ? G.useSettingSearchQuery() : "";
-        const controls = K?.useSearchControls ? K.useSearchControls(ctx, !1, function() {}) : {
-            isActive: !1,
-            setIsActive: function() {},
-            onChangeText: function() {},
-            onSubmit: function() {}
-        };
-        t.React.useEffect(function() {
-            return function() {
-                if (G) {
-                    G.setSettingSearchQuery("");
-                    G.setIsSettingSearchActive(!1);
+                    const oldRel = registry.SETTING_RELATIONSHIPS;
+                    const oldCfg = registry.SETTING_RENDERER_CONFIGS;
+                    registry.SETTING_RELATIONSHIPS = { ...oldRel, [routeKey]: null };
+                    registry.SETTING_RENDERER_CONFIGS = { ...oldCfg, ...ROUTE_CONFIG };
+                    unpatchers.push(() => {
+                        registry.SETTING_RELATIONSHIPS = oldRel;
+                        registry.SETTING_RENDERER_CONFIGS = oldCfg;
+                    });
                 }
-            };
-        }, []);
-        return [q ?? "", controls];
-    };
-
-    // If the wrapper component isn't available, just render the bar
-    const De = Object.assign(function({ searchContext, controls }) {
-        return t.React.createElement(
-            t.ReactNative.ScrollView,
-            { scrollEnabled: !1 },
-            K?.default && AeFound
-                ? t.React.createElement(K.default, { searchContext, controls }, t.React.createElement(AeFound, null))
-                : (AeFound ? t.React.createElement(AeFound, null) : t.React.createElement(t.ReactNative.View, null))
-        );
-    }, { useAdvancedSearch: W });
-
-    // Typography helpers
-    var X;
-    (function(e) {
-        function Bold({ children, onPress }) {
-            return t.React.createElement(b, { variant: "text-md/bold", onPress }, children);
-        }
-        e.Bold = Bold;
-
-        function Underline({ children, onPress }) {
-            return t.React.createElement(Z, { style: { textDecorationLine: "underline" }, onPress }, children);
-        }
-        e.Underline = Underline;
-    })(X || (X = {}));
-
-    function b(props) {
-        let { variant, lineClamp, color, align, style, onPress, getChildren, children, liveUpdate } = props;
-        const [_, rerender] = t.React.useReducer(o => ~o, 0);
-        t.React.useEffect(function() {
-            if (!liveUpdate) return;
-            const nextSec = new Date().setMilliseconds(1000);
-            let intervalId;
-            const timeoutId = setTimeout(function() {
-                rerender();
-                intervalId = setInterval(rerender, 1000);
-            }, nextSec - Date.now());
-            return function() {
-                clearTimeout(timeoutId);
-                clearInterval(intervalId);
-            };
-        }, []);
-        return t.React.createElement(
-            Z,
-            {
-                style: [
-                    variant ? Ne[variant] : {},
-                    color ? { color: be(I.semanticColors[color]) } : {},
-                    align ? { textAlign: align } : {},
-                    style ?? {}
-                ],
-                numberOfLines: lineClamp,
-                onPress
-            },
-            getChildren?.() ?? children
-        );
-    }
-
-    // Simple icon button
-    function O({ onPress, onLongPress, icon, style, destructive, color }) {
-        const styles = t.stylesheet.createThemedStyleSheet({
-            headerStyleIcon: {
-                width: 24,
-                height: 24,
-                marginRight: 10,
-                tintColor: I.semanticColors.HEADER_PRIMARY
-            },
-            cardStyleIcon: {
-                width: 22,
-                height: 22,
-                marginLeft: 5,
-                tintColor: I.semanticColors.INTERACTIVE_NORMAL
-            },
-            destructiveIcon: {
-                tintColor: I.semanticColors.TEXT_DANGER
             }
-        });
+        }
 
-        return t.React.createElement(
-            t.ReactNative.TouchableOpacity,
-            { onPress, onLongPress },
-            t.React.createElement(t.ReactNative.Image, {
-                style: [
-                    typeof style == "string" ? (style === "header" ? styles.headerStyleIcon : styles.cardStyleIcon) : style,
-                    destructive && styles.destructiveIcon,
-                    color && { tintColor: color }
-                ].filter(Boolean),
-                source: icon
-            })
-        );
+        return () => unpatchers.forEach(u => u());
     }
 
-    // Cache of remote themes => hash
+    // ---------- Catalog polling + change detection ----------
+    // L: link -> hash
     let L = {};
 
-    // Determine "new" entries since last check (no update check here)
-    function detectNew() {
-        return !Object.keys(L)[0] || !x.themeCache?.[0]
-            ? []
-            : Object.entries(L)
-                  .map(([url, _hash]) => (x.themeCache?.includes(url) ? undefined : [url, "new"]))
-                  .filter(Boolean);
+    function migrateStorage() {
+        // Move old array cache to map on first run
+        if (!vstorage.themeCacheMap && Array.isArray(vstorage.themeCache)) {
+            vstorage.themeCacheMap = Object.fromEntries(vstorage.themeCache.map(link => [link, null]));
+        }
+        if (!vstorage.themeCacheMap) vstorage.themeCacheMap = {};
+    }
+
+    function getPrevMap() {
+        migrateStorage();
+        return vstorage.themeCacheMap || {};
+    }
+
+    function detectChanges() {
+        const prev = getPrevMap();
+        if (!Object.keys(L).length) return [];
+        return Object.entries(L)
+            .map(([link, hash]) => {
+                if (!(link in prev)) return [link, "new"];
+                if (prev[link] && prev[link] !== hash) return [link, "update"];
+                return undefined;
+            })
+            .filter(Boolean);
     }
 
     function persistSeen() {
-        x.themeCache = Object.keys(L);
+        vstorage.themeCacheMap = { ...L };
     }
 
     async function fetchCatalog() {
-        const json = await (await A.safeFetch(H, { cache: "no-store" })).json();
-        // themes-full.json items: { name, description, authors[], link, vendetta:{icon}, hash }
+        const res = await A.safeFetch(THEMES_URL, { cache: "no-store" });
+        const json = await res.json();
+        // Expect: { name, description, authors[], source?, link, vendetta:{icon}, hash }
         L = Object.fromEntries(json.map(n => [n.link, n.hash]));
+        return json;
     }
 
-    function pollCatalog() {
+    function startPolling() {
         const id = setInterval(fetchCatalog, 6e5);
-        fetchCatalog();
+        fetchCatalog().catch(() => {});
         return () => clearInterval(id);
     }
 
-    // --------- Link Helpers ----------
-
-    // If it's a raw.githubusercontent link, return nice github.com blob link
+    // ---------- Link helpers ----------
     function toGithubBlob(url) {
         try {
             const u = new URL(url);
@@ -368,475 +309,445 @@
                 }
             }
             return url;
-        } catch {
-            return url;
+        } catch { return url; }
+    }
+
+    // ---------- Search wrapper ----------
+    function openActionSheet(Component, props) {
+        try {
+            openSheet(new Promise(r => r({ default: Component })), "ActionSheet", props);
+        } catch (err) {
+            D.logger.error(err?.stack);
+            y.showToast("Error opening sheet", f.getAssetIDByName("Small"));
         }
     }
 
-    // --------- Theme actions ----------
+    const SearchBox = Object.assign(function SearchBox({ searchContext, controls }) {
+        // Prefer native SettingSearchBar and controls; otherwise noop
+        return t.React.createElement(
+            t.ReactNative.ScrollView, { scrollEnabled: !1 },
+            (SearchControls?.default && SettingSearchBar)
+                ? t.React.createElement(SearchControls.default, { searchContext, controls },
+                    t.React.createElement(SettingSearchBar, null))
+                : (SettingSearchBar ? t.React.createElement(SettingSearchBar, null) : t.React.createElement(View, null))
+        );
+    }, {
+        useAdvancedSearch(ctx) {
+            const query = SearchQuery?.useSettingSearchQuery ? SearchQuery.useSettingSearchQuery() : "";
+            const controls = SearchControls?.useSearchControls
+                ? SearchControls.useSearchControls(ctx, !1, function() {})
+                : { isActive: !1, setIsActive() {}, onChangeText() {}, onSubmit() {} };
 
-    async function reinstallTheme(themeLink) {
-        // "Update" action implemented as re-install of the theme
-        await fe.installTheme(themeLink, !0);
-    }
+            t.React.useEffect(() => () => {
+                if (SearchQuery) {
+                    SearchQuery.setSettingSearchQuery("");
+                    SearchQuery.setIsSettingSearchActive(!1);
+                }
+            }, []);
 
-    // Storage emitter presence check (themes storage); used to guard functionality
-    const M = Symbol.for("vendetta.storage.emitter");
-    const $e = !!fe.themes[M];
-
-    const { View: J } = N.General;
-    const ee = t.stylesheet.createThemedStyleSheet({
-        main: { marginRight: 16, flexGrow: 0 },
-        content: {
-            backgroundColor: I.semanticColors.REDESIGN_BUTTON_PRIMARY_BACKGROUND,
-            borderRadius: 16,
-            marginLeft: 8,
-            paddingHorizontal: 8
+            return [query ?? "", controls];
         }
     });
 
-    function te({ text, marginLeft }) {
+    // ---------- Authors ----------
+    function AuthorChip({ id, fallback }) {
+        const [name, setName] = t.React.useState(null);
+        t.React.useEffect(() => {
+            if (!id || !fetchProfile || !UserStore) return;
+            const have = UserStore.getUser?.(id);
+            if (have) setName(have.username);
+            else fetchProfile(id).then(u => setName(u?.user?.username)).catch(() => {});
+        }, [id]);
+
         return t.React.createElement(
-            J,
-            { style: [ee.main, marginLeft ? { marginLeft: 16, marginRight: 0 } : {}] },
+            TText,
+            {
+                variant: "text-md/bold",
+                color: "TEXT_LINK",
+                onPress: () => {
+                    if (!showUserProfile) return;
+                    const have = UserStore.getUser?.(id);
+                    if (have) showUserProfile({ userId: id });
+                    else fetchProfile?.(id).then(() => showUserProfile({ userId: id })).catch(() => {});
+                }
+            },
+            fallback ?? (name ? `@${name}` : "...")
+        );
+    }
+
+    // ---------- Theme installed state ----------
+    function useThemeInstalled(link) {
+        const [installed, setInstalled] = t.React.useState(!!fe.themes[link]);
+        const emitter = fe.themes[StorageEmitterKey];
+        const refresh = () => setInstalled(!!fe.themes[link]);
+
+        t.React.useEffect(() => {
+            setInstalled(!!fe.themes[link]);
+            emitter?.on?.("SET", refresh);
+            emitter?.on?.("DEL", refresh);
+            return () => {
+                emitter?.off?.("SET", refresh);
+                emitter?.off?.("DEL", refresh);
+            };
+        }, [link]);
+
+        return installed;
+    }
+
+    // ---------- Theme Card ----------
+    function ThemeCard({ item, marks }) {
+        const themeUrl = item.link;
+        const installed = useThemeInstalled(themeUrl);
+        const [busy, setBusy] = t.React.useState(!1);
+
+        const change = marks.find(m => m[0] === themeUrl)?.[1]; // "new" | "update"
+        const badgeEl = change
+            ? t.React.createElement(Chip, { text: change === "new" ? "New" : "Upd" })
+            : null;
+
+        // Source: prefer item.source, else derive from raw link
+        const sourceLink = item.source || toGithubBlob(themeUrl);
+
+        const actions = busy ? [] : (installed
+            ? [
+                {
+                    icon: f.getAssetIDByName("ic_sync_24px"),
+                    onPress: function() {
+                        setBusy(!0);
+                        fe.installTheme(themeUrl, !0)
+                            .then(() => y.showToast(`Updated ${item.name}`, f.getAssetIDByName("ic_sync_24px")))
+                            .catch(() => y.showToast(`Failed to update ${item.name}`, f.getAssetIDByName("Small")))
+                            .finally(() => setBusy(!1));
+                    }
+                },
+                {
+                    icon: f.getAssetIDByName("ic_message_delete"),
+                    destructive: !0,
+                    onPress: function() {
+                        setBusy(!0);
+                        try {
+                            fe.removeTheme(themeUrl);
+                            y.showToast(`Removed ${item.name}`, f.getAssetIDByName("ic_message_delete"));
+                        } catch {
+                            y.showToast(`Failed to remove ${item.name}`, f.getAssetIDByName("Small"));
+                        } finally {
+                            setBusy(!1);
+                        }
+                    },
+                    onLongPress: function() {
+                        t.clipboard.setString(themeUrl);
+                        y.showToast("Copied theme URL", f.getAssetIDByName("toast_copy_link"));
+                    }
+                }
+            ]
+            : [
+                {
+                    icon: f.getAssetIDByName("ic_download_24px"),
+                    onPress: function() {
+                        setBusy(!0);
+                        fe.installTheme(themeUrl, !0)
+                            .then(() => y.showToast(`Installed ${item.name}`, f.getAssetIDByName("toast_image_saved")))
+                            .catch(err => y.showToast(err?.message ?? `Failed to install ${item.name}`, f.getAssetIDByName("Small")))
+                            .finally(() => setBusy(!1));
+                    },
+                    onLongPress: function() {
+                        t.clipboard.setString(themeUrl);
+                        y.showToast("Copied theme URL", f.getAssetIDByName("toast_copy_link"));
+                    }
+                }
+            ]);
+
+        const extra = [
+            {
+                icon: f.getAssetIDByName("img_account_sync_github_white"),
+                onPress: () => t.url.openURL(sourceLink),
+                onLongPress: function() {
+                    t.clipboard.setString(sourceLink);
+                    y.showToast("Copied source link", f.getAssetIDByName("toast_copy_link"));
+                }
+            }
+        ];
+
+        return t.React.createElement(
+            t.ReactNative.View, { style: themed.card },
+
+            // Header
             t.React.createElement(
-                J,
-                { style: ee.content },
-                t.React.createElement(b, { variant: "eyebrow", color: "TEXT_NORMAL" }, text)
+                View, { style: themed.cardHeader },
+                t.React.createElement(View, { style: themed.cardIconCircle },
+                    t.React.createElement(t.ReactNative.Image, {
+                        source: f.getAssetIDByName(item.vendetta?.icon ?? "ic_theme_24px"),
+                        style: { width: 20, height: 20, tintColor: resolveColor(I.semanticColors.INTERACTIVE_NORMAL) }
+                    })
+                ),
+                t.React.createElement(View, { style: { flex: 1 } },
+                    t.React.createElement(TText, { variant: "text-md/semibold", color: "HEADER_PRIMARY", numberOfLines: 1 }, item.name),
+                    item.authors?.length
+                        ? t.React.createElement(TText, { variant: "text-sm/semibold", color: "TEXT_MUTED", numberOfLines: 1 },
+                            "by ",
+                            ...item.authors.map((a, idx, arr) => t.React.createElement(t.React.Fragment, null,
+                                t.React.createElement(AuthorChip, { id: a.id, fallback: a.name }),
+                                idx !== arr.length - 1 ? ", " : ""
+                            ))
+                          )
+                        : null
+                ),
+                badgeEl
+            ),
+
+            // Body
+            t.React.createElement(
+                View, { style: themed.cardBody },
+                t.React.createElement(TText, { variant: "text-sm/normal", color: "TEXT_NORMAL", numberOfLines: 3 }, item.description || "No description.")
+            ),
+
+            // Actions
+            t.React.createElement(
+                View, { style: themed.cardActions },
+                ...extra.map((ac, i) => t.React.createElement(IconButton, { key: `x${i}`, ...ac, kind: "card" })),
+                ...actions.map((ac, i) => t.React.createElement(IconButton, { key: i, ...ac, kind: "card" })),
+                busy && t.React.createElement(t.ReactNative.ActivityIndicator, { size: "small", style: { height: 22, width: 22 } })
             )
         );
     }
 
-    // User fetcher (for author chips)
-    const { showUserProfile: ne } = s.findByProps("showUserProfile");
-    const { fetchProfile: re } = s.findByProps("fetchProfile");
-    const F = s.findByStoreName("UserStore");
+    // ---------- Filters / Sort ----------
+    const Sort = {
+        FreshFirst: "Fresh first (New/Upd)",
+        InstalledFirst: "Installed first",
+        NameAZ: "Name (A–Z)",
+        NameZA: "Name (Z–A)"
+    };
 
-    function Me({ userId, color, loadUsername, children }) {
-        const [name, setName] = t.React.useState(null);
-        t.React.useEffect(function() {
-            if (name || !loadUsername) return;
-            if (F.getUser(userId)) {
-                setName(F.getUser(userId).username);
-            } else {
-                re(userId).then(u => setName(u.user.username));
-            }
-        }, [loadUsername]);
-        return t.React.createElement(
-            b,
-            {
-                variant: "text-md/bold",
-                color: color ?? "TEXT_NORMAL",
-                onPress: function() {
-                    return F.getUser(userId)
-                        ? ne({ userId })
-                        : re(userId).then(() => ne({ userId }));
-                }
-            },
-            loadUsername ? `@${name ?? "..."}` : children
-        );
-    }
-
-    // Observe installed state of a theme by link
-    function useThemeInstalled(link) {
-        const [installed, setInstalled] = t.React.useState(!!fe.themes[link]);
-        const emitter = fe.themes[M];
-        const refresh = () => setInstalled(!!fe.themes[link]);
-
-        t.React.useEffect(function() {
-            setInstalled(!!fe.themes[link]);
-            emitter.on("SET", refresh);
-            emitter.on("DEL", refresh);
-            return () => {
-                emitter.off("SET", refresh);
-                emitter.off("DEL", refresh);
-            };
-        });
-        return installed;
-    }
-
-    // Generic card
-    const { FormRow: U } = N.Forms;
-    const k = t.stylesheet.createThemedStyleSheet({
-        card: { backgroundColor: I.semanticColors.BACKGROUND_SECONDARY, borderRadius: 5 },
-        header: {
-            padding: 0,
-            backgroundColor: I.semanticColors.BACKGROUND_TERTIARY,
-            borderTopLeftRadius: 5,
-            borderTopRightRadius: 5
-        },
-        actions: { flexDirection: "row-reverse", alignItems: "center" }
-    });
-
-    function Ue(props) {
-        return t.React.createElement(
-            t.ReactNative.View,
-            { style: [k.card, { marginBottom: 10 }] },
-            t.React.createElement(U, {
-                style: k.header,
-                label: props.headerLabel,
-                leading: props.headerIcon && t.React.createElement(U.Icon, { source: props.headerIcon })
-            }),
-            t.React.createElement(U, {
-                label: props.descriptionLabel,
-                trailing: t.React.createElement(
-                    t.ReactNative.View,
-                    { style: k.actions },
-                    props.actions?.map(({ icon, onPress, onLongPress, destructive }) =>
-                        t.React.createElement(O, {
-                            icon,
-                            onPress,
-                            onLongPress,
-                            style: "card",
-                            destructive: destructive ?? !1
-                        })
-                    ),
-                    props.loading &&
-                        t.React.createElement(t.ReactNative.ActivityIndicator, {
-                            size: "small",
-                            style: { height: 22, width: 22 }
-                        })
-                )
-            })
-        );
-    }
-
-    const { View: ke } = N.General;
-
-    // Individual Theme row
-    function Ve({ item, changes }) {
-        // item: { name, description, authors[], link, vendetta.icon, hash }
-        const themeUrl = item.link;
-        const [busy, setBusy] = t.React.useState(!1);
-        const isInstalled = useThemeInstalled(themeUrl);
-
-        // "New" badge on fresh entries (since last fetch)
-        const mark = changes.find(R => R[0] === themeUrl);
-        const githubLink = toGithubBlob(themeUrl);
-
-        const extraActions = [];
-
-        if (githubLink) {
-            extraActions.push({
-                icon: f.getAssetIDByName("img_account_sync_github_white"),
-                onPress: () => t.url.openURL(githubLink),
-                onLongPress: function() {
-                    t.clipboard.setString(githubLink);
-                    y.showToast("Copied GitHub link", f.getAssetIDByName("toast_copy_link"));
-                }
-            });
-        }
-
-        const actions = busy
-            ? []
-            : isInstalled
-            ? [
-                  {
-                      icon: f.getAssetIDByName("ic_sync_24px"),
-                      onPress: function() {
-                          setBusy(!0);
-                          reinstallTheme(themeUrl)
-                              .then(() => y.showToast(`Successfully updated ${item.name}`, f.getAssetIDByName("ic_sync_24px")))
-                              .catch(() => y.showToast(`Failed to update ${item.name}!`, f.getAssetIDByName("Small")))
-                              .finally(() => setBusy(!1));
-                      }
-                  },
-                  {
-                      icon: f.getAssetIDByName("ic_message_delete"),
-                      destructive: !0,
-                      onPress: async function() {
-                          setBusy(!0);
-                          try {
-                              fe.removeTheme(themeUrl);
-                              y.showToast(`Successfully deleted ${item.name}`, f.getAssetIDByName("ic_message_delete"));
-                          } catch {
-                              y.showToast(`Failed to delete ${item.name}!`, f.getAssetIDByName("Small"));
-                          }
-                          setBusy(!1);
-                      },
-                      onLongPress: function() {
-                          t.clipboard.setString(themeUrl);
-                          y.showToast("Copied theme URL", f.getAssetIDByName("toast_copy_link"));
-                      }
-                  },
-                  ...extraActions
-              ]
-            : [
-                  {
-                      icon: f.getAssetIDByName("ic_download_24px"),
-                      onPress: async function() {
-                          setBusy(!0);
-                          fe.installTheme(themeUrl, !0)
-                              .then(() => y.showToast(`Successfully installed ${item.name}`, f.getAssetIDByName("toast_image_saved")))
-                              .catch(err =>
-                                  y.showToast(err?.message ?? `Failed to install ${item.name}!`, f.getAssetIDByName("Small"))
-                              )
-                              .finally(() => setBusy(!1));
-                      },
-                      onLongPress: function() {
-                          t.clipboard.setString(themeUrl);
-                          y.showToast("Copied theme URL", f.getAssetIDByName("toast_copy_link"));
-                      }
-                  },
-                  ...extraActions
-              ];
-
-        return t.React.createElement(Ue, {
-            headerLabel: t.React.createElement(
-                ke,
-                { style: { flexDirection: "row" } },
-                mark && t.React.createElement(te, { text: "New" }),
-                t.React.createElement(b, { variant: "text-md/semibold", color: "HEADER_PRIMARY" },
-                    item.name,
-                    item.authors?.[0] && " by ",
-                    ...(item.authors ?? []).map((R, idx, arr) =>
-                        t.React.createElement(t.React.Fragment, null,
-                            t.React.createElement(Me, { userId: R.id, color: "TEXT_LINK" }, R.name),
-                            idx !== arr.length - 1 && ", "
-                        )
-                    )
-                )
-            ),
-            headerIcon: f.getAssetIDByName(item.vendetta?.icon ?? "ic_theme_24px"),
-            descriptionLabel: item.description,
-            actions,
-            loading: busy
-        });
-    }
-
-    // Radio sheet
-    const { FormRadioRow: He } = N.Forms;
-    function je({ label, value, choices, update }) {
+    function SortSheet({ label, value, choices, update }) {
         const [selected, setSelected] = t.React.useState(value);
         update(selected);
         return t.React.createElement(
-            Ie,
-            null,
-            t.React.createElement(
-                Ce,
-                null,
-                t.React.createElement(we, { title: label, trailing: t.React.createElement(Be, { onPress: () => Te() }) }),
-                choices.map(choice =>
-                    t.React.createElement(He, {
-                        label: choice,
-                        onPress: () => setSelected(choice),
-                        selected: selected === choice
+            ActionSheetMod, null,
+            t.React.createElement(ActionSheetContentContainer, null,
+                t.React.createElement(ActionSheetTitleHeader, {
+                    title: label,
+                    trailing: t.React.createElement(ActionSheetCloseButton, { onPress: () => hideSheet() })
+                }),
+                choices.map(c =>
+                    t.React.createElement(FormRadioRow, {
+                        key: c, label: c,
+                        onPress: () => setSelected(c),
+                        selected: selected === c
                     })
                 )
             )
         );
     }
 
-    const { View: ie } = N.General;
+    // ---------- Main Screen ----------
+    let headerRefresh, headerFilter;
 
-    // Sort options
-    var v;
-    (function(e) {
-        e.DateNewest = "Creation date (new to old)";
-        e.DateOldest = "Creation date (old to new)";
-        e.NameAZ = "Name (A-Z)";
-        e.NameZA = "Name (Z-A)";
-    })(v || (v = {}));
-
-    let ae, se; // header actions (refresh/filter)
-
-    function ce() {
+    function ThemeBrowser() {
         const nav = t.NavigationNative.useNavigation();
 
-        if (!fe.themes[Symbol.for("vendetta.storage.emitter")]) {
+        if (!fe.themes[StorageEmitterKey]) {
             de.showConfirmationAlert({
                 title: "Can't use",
-                content: "You must reinstall Vendetta first in order for Theme Browser to function properly",
+                content: "Reinstall Vendetta for Theme Browser to function properly.",
                 confirmText: "Dismiss",
                 confirmColor: "brand",
-                onConfirm: function() {},
+                onConfirm() {},
                 isDismissable: !0
             });
             nav.goBack();
             return null;
         }
 
-        const searchContext = { type: "THEME_BROWSER_SEARCH" };
-        const [query, controls] = W(searchContext);
+        const searchCtx = { type: "THEME_BROWSER_SEARCH" };
+        const [query, searchControls] = SearchBox.useAdvancedSearch(searchCtx);
 
-        const changesRef = t.React.useRef(detectNew()).current;
-
-        const [sortBy, setSortBy] = t.React.useState(v.DateNewest);
+        // Data
         const [catalog, setCatalog] = t.React.useState(null);
-        const setSortRef = t.React.useRef(setSortBy);
-        setSortRef.current = setSortBy;
+        const [refreshing, setRefreshing] = t.React.useState(!1);
 
-        const filtered = t.React.useMemo(function() {
-            if (!catalog) return;
-            const q = (query ?? "").toLowerCase();
+        // Sort
+        const [sortBy, setSortBy] = t.React.useState(Sort.FreshFirst);
+        const sortSetterRef = t.React.useRef(setSortBy); sortSetterRef.current = setSortBy;
 
-            let arr = catalog.filter(o =>
-                o.name?.toLowerCase().includes(q) ||
-                (o.authors ?? []).some(a => a.name?.toLowerCase().includes(q)) ||
-                o.description?.toLowerCase().includes(q)
-            ).slice();
+        // Change marks
+        const marksRef = t.React.useRef(detectChanges()).current;
 
-            if ([v.NameAZ, v.NameZA].includes(sortBy)) {
-                arr.sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
-            }
-            if ([v.NameZA, v.DateNewest].includes(sortBy)) arr.reverse();
-            return arr;
-        }, [sortBy, catalog, query]);
-
-        // Persist seen list once per screen mount
-        t.React.useEffect(persistSeen, []);
-
-        // Fetch once (or on pull-to-refresh via header)
-        t.React.useEffect(function() {
+        // Fetch (initial + when header refresh taps sets null)
+        t.React.useEffect(() => {
             if (catalog) return;
-            A.safeFetch(H, { cache: "no-store" })
-                .then(res =>
-                    res.json().then(json => setCatalog(json)).catch(() =>
-                        y.showToast("Failed to parse themes", f.getAssetIDByName("Small"))
-                    )
-                )
-                .catch(() => y.showToast("Failed to fetch themes", f.getAssetIDByName("Small")));
+            (async () => {
+                try {
+                    const json = await fetchCatalog();
+                    setCatalog(json);
+                } catch {
+                    y.showToast("Failed to fetch themes", f.getAssetIDByName("Small"));
+                }
+            })();
         }, [catalog]);
 
-        ae = function() {
-            if (catalog) setCatalog(null);
-        };
+        // Persist seen on mount so new/install badges don't reappear next time
+        t.React.useEffect(persistSeen, []);
 
-        se = function() {
+        // Header buttons
+        headerRefresh = () => setCatalog(null);
+        headerFilter = () => {
             if (!catalog) return;
-            _e(je, {
-                label: "Filter",
+            openActionSheet(SortSheet, {
+                label: "Sort",
                 value: sortBy,
-                choices: Object.values(v),
-                update: function(val) {
-                    setSortRef.current(val);
-                }
+                choices: Object.values(Sort),
+                update: (val) => sortSetterRef.current(val)
             });
         };
 
         nav.addListener("focus", function() {
             nav.setOptions({
                 title: "Theme Browser",
-                headerRight: function() {
-                    return t.React.createElement(
-                        ie,
-                        { style: { flexDirection: "row-reverse" } },
-                        t.React.createElement(O, {
-                            onPress: () => ae?.(),
-                            icon: f.getAssetIDByName("ic_sync_24px"),
-                            style: "header"
+                headerRight() {
+                    return t.React.createElement(View, { style: themed.headerRightRow },
+                        t.React.createElement(IconButton, {
+                            onPress: headerRefresh, icon: f.getAssetIDByName("ic_sync_24px"), kind: "header"
                         }),
-                        t.React.createElement(O, {
-                            onPress: () => se?.(),
-                            icon: f.getAssetIDByName("ic_filter"),
-                            style: "header"
+                        t.React.createElement(IconButton, {
+                            onPress: headerFilter, icon: f.getAssetIDByName("ic_filter"), kind: "header"
                         })
                     );
                 }
             });
         });
 
+        // Filtering + sorting
+        const lowerQ = (query ?? "").toLowerCase();
+        const filtered = t.React.useMemo(() => {
+            if (!catalog) return [];
+            let arr = catalog.filter(o =>
+                o.name?.toLowerCase().includes(lowerQ) ||
+                (o.authors ?? []).some(a => a.name?.toLowerCase().includes(lowerQ)) ||
+                o.description?.toLowerCase().includes(lowerQ)
+            );
+
+            // Sorts
+            if (sortBy === Sort.NameAZ || sortBy === Sort.NameZA) {
+                arr = [...arr].sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+                if (sortBy === Sort.NameZA) arr.reverse();
+            } else if (sortBy === Sort.FreshFirst) {
+                const isFresh = (it) => marksRef.some(m => m[0] === it.link);
+                arr = [...arr].sort((a, b) => (isFresh(b) - isFresh(a)) || (a.name > b.name ? 1 : -1));
+            } else if (sortBy === Sort.InstalledFirst) {
+                arr = [...arr].sort((a, b) => ((!!fe.themes[b.link]) - (!!fe.themes[a.link])) || (a.name > b.name ? 1 : -1));
+            }
+            return arr;
+        }, [catalog, lowerQ, sortBy]);
+
+        // Pull to refresh
+        function onRefresh() {
+            setRefreshing(!0);
+            fetchCatalog()
+                .then(json => setCatalog(json))
+                .catch(() => y.showToast("Refresh failed", f.getAssetIDByName("Small")))
+                .finally(() => setRefreshing(!1));
+        }
+
+        // Counts for title chip if we wanted (we keep header clean; show chip in row instead)
+        const counts = t.React.useMemo(() => {
+            const list = marksRef;
+            return {
+                new: list.filter(m => m[1] === "new").length,
+                upd: list.filter(m => m[1] === "update").length
+            };
+        }, [marksRef]);
+
         return catalog
-            ? t.React.createElement(t.ReactNative.FlatList, {
-                  ListHeaderComponent: t.React.createElement(
-                      ie,
-                      { style: { marginBottom: 10 } },
-                      t.React.createElement(De, { searchContext, controls })
-                  ),
-                  style: { paddingHorizontal: 10 },
-                  contentContainerStyle: { paddingBottom: 20 },
-                  data: filtered,
-                  renderItem: function({ item }) {
-                      return t.React.createElement(Ve, {
-                          item,
-                          changes: changesRef
-                      });
-                  },
-                  removeClippedSubviews: !0
-              })
+            ? t.React.createElement(
+                t.ReactNative.FlatList,
+                {
+                    ListHeaderComponent: t.React.createElement(View, { style: { marginBottom: 10 } },
+                        t.React.createElement(SearchBox, { searchContext: searchCtx, controls: searchControls })
+                    ),
+                    style: {},
+                    contentContainerStyle: themed.listPad,
+                    data: filtered,
+                    keyExtractor: (it, i) => it.link ?? String(i),
+                    renderItem: ({ item }) => t.React.createElement(ThemeCard, { item, marks: marksRef }),
+                    removeClippedSubviews: !0,
+                    refreshControl: t.React.createElement(t.ReactNative.RefreshControl, {
+                        refreshing, onRefresh,
+                        tintColor: resolveColor(I.semanticColors.INTERACTIVE_NORMAL)
+                    }),
+                    ListEmptyComponent: t.React.createElement(View, { style: themed.empty },
+                        t.React.createElement(TText, { variant: "text-md/semibold", color: "TEXT_MUTED" },
+                            lowerQ ? "No themes match your search." : "No themes found.")
+                    )
+                }
+            )
             : t.React.createElement(t.ReactNative.ActivityIndicator, { size: "large", style: { flex: 1 } });
     }
 
-    const { FormRow: V } = N.Forms;
-
-    function ze({ changes }) {
+    // ---------- Settings row ----------
+    function SettingsRow({ changes }) {
         const nav = t.NavigationNative.useNavigation();
+        const chips = [];
+        if (changes?.new) chips.push(t.React.createElement(Chip, { key: "n", text: `+${changes.new}`, ml: !0 }));
+        if (changes?.upd) chips.push(t.React.createElement(Chip, { key: "u", text: `↑${changes.upd}`, ml: !changes?.new }));
+
         return t.React.createElement(
-            N.ErrorBoundary,
-            null,
-            t.React.createElement(V, {
-                label: t.React.createElement(
-                    b,
-                    { variant: "text-md/semibold", color: "HEADER_PRIMARY" },
-                    "Theme Browser",
-                    changes
-                        ? t.React.createElement(te, { text: changes.toString(), marginLeft: !0 })
-                        : t.React.createElement(t.React.Fragment, null)
+            N.ErrorBoundary, null,
+            t.React.createElement(FormRow, {
+                label: t.React.createElement(View, { style: { flexDirection: "row", alignItems: "center" } },
+                    t.React.createElement(TText, { variant: "text-md/semibold", color: "HEADER_PRIMARY" }, "Theme Browser"),
+                    ...chips
                 ),
-                leading: t.React.createElement(V.Icon, { source: f.getAssetIDByName("ic_theme_24px") }),
-                trailing: V.Arrow,
-                onPress: function() {
-                    return nav.push("VendettaCustomPage", { render: ce });
-                }
+                leading: t.React.createElement(FormRow.Icon, { source: f.getAssetIDByName("ic_theme_24px") }),
+                trailing: FormRow.Arrow,
+                onPress: () => nav.push("VendettaCustomPage", { render: ThemeBrowser })
             })
         );
     }
 
-    function Ye() {
-        const cleanups = [];
+    // ---------- Mount / Unmount ----------
+    function mount() {
+        // compute change counts once for settings chip
+        const list = detectChanges();
+        const counts = { new: list.filter(m => m[1] === "new").length, upd: list.filter(m => m[1] === "update").length };
 
-        // Insert Theme Browser row into settings
+        const cleanups = [];
         cleanups.push(
-            ye(
+            injectSettingRow(
                 () => !0,
-                () => t.React.createElement(ze, {
-                    changes: detectNew().filter(n => n[1] === "new").length
-                }),
+                () => t.React.createElement(SettingsRow, { changes: counts }),
                 {
                     key: D.plugin.manifest.name,
                     icon: f.getAssetIDByName("ic_theme_24px"),
                     get title() {
-                        const n = detectNew().filter(r => r[1] === "new").length;
-                        return `Theme Browser${n ? ` (+${n})` : ""}`;
+                        const n = counts.new, u = counts.upd;
+                        const suffix = n || u ? ` (${n ? `+${n}` : ""}${u ? `${n ? " · " : ""}↑${u}` : ""})` : "";
+                        return `Theme Browser${suffix}`;
                     },
-                    page: { render: ce }
+                    page: { render: ThemeBrowser }
                 }
             )
         );
 
-        // Start catalog polling
-        cleanups.push(pollCatalog());
+        cleanups.push(startPolling());
 
-        return function() {
-            return cleanups.forEach(n => n());
-        };
+        return () => cleanups.forEach(fn => fn());
     }
 
-    // --------------- Constants & Exports ---------------
+    let disposer;
 
-    // Your custom themes catalog:
-    const H = "https://troyydev.github.io/Playfab-pal/theme/themes-full.json";
-
-    // Persistance storage
-    const x = le.storage;
-
-    let onUnloadFn;
-
-    var Plugin = {
-        onLoad: function() {
-            onUnloadFn = Ye();
-        },
-        onUnload: function() {
-            onUnloadFn?.();
-        }
+    const Plugin = {
+        onLoad() { disposer = mount(); },
+        onUnload() { disposer?.(); }
     };
 
+    // ---------- Exports ----------
     C.default = Plugin;
-    C.themesURL = H;
-    C.vstorage = x;
+    C.themesURL = THEMES_URL;
+    C.vstorage = vstorage;
     Object.defineProperty(C, "__esModule", { value: !0 });
-
     return C;
+
 })(
     {},
     vendetta.plugin,
