@@ -1,0 +1,16 @@
+{
+  "name": "ThemeBrowser",
+  "description": "Browse all proxied themes",
+  "authors": [
+    {
+      "name": "nexpid",
+      "id": "853550207039832084"
+    }
+  ],
+  "main": "index.js",
+  "vendetta": {
+    "icon": "ic_theme_24px",
+    "original": "vendetta.nexpid.xyz/theme-browser/"
+  },
+  "hash": "0000000000000000000000000000000000000000000000000000000000000000"
+}
