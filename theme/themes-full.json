@@ -1,17 +1,34 @@
 [
   {
     "name": "Cybercord 2077 v2",
-    "description": "Test Theme",
+    "description": "A complete remake of my previous CP2077 theme, i added and changed much stuff + FINALLY the theme supports NewUI.",
     "authors": [
       {
-        "name": "Troyy_",
-        "id": "220584715265114113"
+        "name": "zovvvvy",
+        "id": "499287211381096458"
       }
     ],
+    "source": "https://github.com/luzikii/vendetta",
     "link": "https://raw.githubusercontent.com/luzikii/vendetta/main/CP2077HUD.json",
     "vendetta": {
       "icon": "ic_theme_24px"
     },
-    "hash": "a1b2c3d4e5f6g7h8i9j0"
+    "hash": "TODO_GENERATE"
+  },
+  {
+    "name": "Eye Candy",
+    "description": "Port of HaniBee's eye candy theme for Aliucord. Theme also uses themes+ (https://vendetta.nexpid.xyz/themes-plus/).",
+    "authors": [
+      {
+        "name": "mudrhiod",
+        "id": "807170846497570848"
+      }
+    ],
+    "source": "https://github.com/Quinxxxx/Discord-themes",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes/main/Vendetta/Eye_candy.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "TODO_GENERATE"
   }
 ]
