@@ -73,7 +73,7 @@
     "PLUM_21": "#0f1115",
     "PLUM_22": "#12161d",
     "PLUM_24": "#12161d",
-    "PLUM_25": "#9ccfd8",  // kept as calm success teal
+    "PLUM_25": "#9ccfd8", 
 
     "PRIMARY_100": "#d7dbe2",
     "PRIMARY_230": "#e6e6e6",
@@ -198,8 +198,6 @@
     "iconpack": "rosiecord-plumpy",
     "customOverlays": true,
     "icons": {
-      // Keeping your iconpack but shifting the default accent neutrally:
-      // Tip: if any icon still looks purple in-app, set it to "#9fb4ca" or "#cbd3dd".
       "ClydeIcon": "#3a7bd5",
       "Discord": "#3a7bd5",
       "StatusOnline": "#2fbf71",
