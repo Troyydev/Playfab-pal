@@ -183,7 +183,6 @@
 
     // ThemeStore for semantics
     const Se = s.findByStoreName("ThemeStore");
-    s.findByProps("triggerHaptic");
 
     // Colors, typography
     const Y = s.findByProps("colors", "unsafe_rawColors");
@@ -198,16 +197,10 @@
     const { ActionSheetTitleHeader: we, ActionSheetCloseButton: Be, ActionSheetContentContainer: Ce } =
         s.findByProps("ActionSheetTitleHeader", "ActionSheetCloseButton", "ActionSheetContentContainer");
 
-    // Search controls
-    const K = s.findByProps("useSearchControls");
-    const G = s.findByProps("useSettingSearchQuery");
-    const Ae = s.findByName("SettingSearchBar");
-
-    // WebView present (not used here directly)
-    s.find(e => e?.WebView && !e.default).WebView;
-
-    // Button/SegmentedControl exists
-    s.findByProps("Button", "SegmentedControl");
+    // Search controls (may not exist on some builds)
+    const K = s.findByProps("useSearchControls") || null;
+    const G = s.findByProps("useSettingSearchQuery") || null;
+    const AeFound = s.findByName("SettingSearchBar") || null;
 
     function be(semantic, theme = Se.theme) {
         return Ee.resolveSemanticColor(theme, semantic);
@@ -222,24 +215,34 @@
         }
     }
 
-    // Hook to wire advanced search control
+    // Hook to wire advanced search control (with graceful fallbacks)
     const W = function(ctx) {
-        const q = G.useSettingSearchQuery();
-        const controls = K.useSearchControls(ctx, !1, function() {});
+        const q = G?.useSettingSearchQuery ? G.useSettingSearchQuery() : "";
+        const controls = K?.useSearchControls ? K.useSearchControls(ctx, !1, function() {}) : {
+            isActive: !1,
+            setIsActive: function() {},
+            onChangeText: function() {},
+            onSubmit: function() {}
+        };
         t.React.useEffect(function() {
             return function() {
-                G.setSettingSearchQuery("");
-                G.setIsSettingSearchActive(!1);
+                if (G) {
+                    G.setSettingSearchQuery("");
+                    G.setIsSettingSearchActive(!1);
+                }
             };
         }, []);
-        return [q, controls];
+        return [q ?? "", controls];
     };
 
+    // If the wrapper component isn't available, just render the bar
     const De = Object.assign(function({ searchContext, controls }) {
         return t.React.createElement(
             t.ReactNative.ScrollView,
             { scrollEnabled: !1 },
-            t.React.createElement(K.default, { searchContext, controls }, t.React.createElement(Ae, null))
+            K?.default && AeFound
+                ? t.React.createElement(K.default, { searchContext, controls }, t.React.createElement(AeFound, null))
+                : (AeFound ? t.React.createElement(AeFound, null) : t.React.createElement(t.ReactNative.View, null))
         );
     }, { useAdvancedSearch: W });
 
@@ -377,7 +380,7 @@
         await fe.installTheme(themeLink, !0);
     }
 
-    // Storage emitter presence check (plugins & themes storages); used to guard functionality
+    // Storage emitter presence check (themes storage); used to guard functionality
     const M = Symbol.for("vendetta.storage.emitter");
     const $e = !!fe.themes[M];
 
@@ -393,13 +396,13 @@
     });
 
     function te({ text, marginLeft }) {
-        return React.createElement(
+        return t.React.createElement(
             J,
             { style: [ee.main, marginLeft ? { marginLeft: 16, marginRight: 0 } : {}] },
-            React.createElement(
+            t.React.createElement(
                 J,
                 { style: ee.content },
-                React.createElement(b, { variant: "eyebrow", color: "TEXT_NORMAL" }, text)
+                t.React.createElement(b, { variant: "eyebrow", color: "TEXT_NORMAL" }, text)
             )
         );
     }
@@ -511,10 +514,10 @@
         const mark = changes.find(R => R[0] === themeUrl);
         const githubLink = toGithubBlob(themeUrl);
 
-        const actionIcons = [];
+        const extraActions = [];
 
         if (githubLink) {
-            actionIcons.push({
+            extraActions.push({
                 icon: f.getAssetIDByName("img_account_sync_github_white"),
                 onPress: () => t.url.openURL(githubLink),
                 onLongPress: function() {
@@ -556,7 +559,7 @@
                           y.showToast("Copied theme URL", f.getAssetIDByName("toast_copy_link"));
                       }
                   },
-                  ...actionIcons
+                  ...extraActions
               ]
             : [
                   {
@@ -575,7 +578,7 @@
                           y.showToast("Copied theme URL", f.getAssetIDByName("toast_copy_link"));
                       }
                   },
-                  ...actionIcons
+                  ...extraActions
               ];
 
         return t.React.createElement(Ue, {
@@ -583,7 +586,9 @@
                 ke,
                 { style: { flexDirection: "row" } },
                 mark && t.React.createElement(te, { text: "New" }),
-                t.React.createElement(b, { variant: "text-md/semibold", color: "HEADER_PRIMARY" }, item.name, item.authors?.[0] && " by ",
+                t.React.createElement(b, { variant: "text-md/semibold", color: "HEADER_PRIMARY" },
+                    item.name,
+                    item.authors?.[0] && " by ",
                     ...(item.authors ?? []).map((R, idx, arr) =>
                         t.React.createElement(t.React.Fragment, null,
                             t.React.createElement(Me, { userId: R.id, color: "TEXT_LINK" }, R.name),
@@ -638,7 +643,7 @@
     function ce() {
         const nav = t.NavigationNative.useNavigation();
 
-        if (!$e) {
+        if (!fe.themes[Symbol.for("vendetta.storage.emitter")]) {
             de.showConfirmationAlert({
                 title: "Can't use",
                 content: "You must reinstall Vendetta first in order for Theme Browser to function properly",
@@ -756,19 +761,19 @@
 
     function ze({ changes }) {
         const nav = t.NavigationNative.useNavigation();
-        return React.createElement(
+        return t.React.createElement(
             N.ErrorBoundary,
             null,
-            React.createElement(V, {
-                label: React.createElement(
+            t.React.createElement(V, {
+                label: t.React.createElement(
                     b,
                     { variant: "text-md/semibold", color: "HEADER_PRIMARY" },
                     "Theme Browser",
                     changes
-                        ? React.createElement(te, { text: changes.toString(), marginLeft: !0 })
-                        : React.createElement(React.Fragment, null)
+                        ? t.React.createElement(te, { text: changes.toString(), marginLeft: !0 })
+                        : t.React.createElement(t.React.Fragment, null)
                 ),
-                leading: React.createElement(V.Icon, { source: f.getAssetIDByName("ic_theme_24px") }),
+                leading: t.React.createElement(V.Icon, { source: f.getAssetIDByName("ic_theme_24px") }),
                 trailing: V.Arrow,
                 onPress: function() {
                     return nav.push("VendettaCustomPage", { render: ce });
@@ -784,7 +789,7 @@
         cleanups.push(
             ye(
                 () => !0,
-                () => React.createElement(ze, {
+                () => t.React.createElement(ze, {
                     changes: detectNew().filter(n => n[1] === "new").length
                 }),
                 {
