@@ -1,10 +1,7 @@
 {
   "name": "Clean Dark (De-Purple)",
   "description": "Neutral dark variant of Orchid Love — blue-gray accents, higher contrast, minimal chrome.",
-  "authors": [
-    { "name": "Vodka", "id": "1068030255455015013" },
-    { "name": "Edited by ChatGPT", "id": "0" }
-  ],
+  "authors": [ { "name": "Vodka", "id": "1068030255455015013" }
   "semanticColors": {
     "ANDROID_RIPPLE": ["#3a7bd520"],
     "BACKGROUND_ACCENT": ["#1e222a"],
