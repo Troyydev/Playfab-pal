@@ -1,5 +1,789 @@
 [
   {
+    "name": "(Repost) BlueVen",
+    "description": "",
+    "authors": [
+      {
+        "name": "vve1",
+        "id": "670986272377929743"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/vorlie/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/vorlie/VendettaThemes/main/BlueVen/BlueVen.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "565fca5ee5ba28ff92b79268f9e0c2907e9be2c2"
+  },
+  {
+    "name": "(Repost) PurpAMOLED",
+    "description": "",
+    "authors": [
+      {
+        "name": "vve1",
+        "id": "670986272377929743"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/vorlie/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/vorlie/VendettaThemes/main/PurpAMOLED/PurpAMOLED.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "fa22801c4fd9810a5b3e74afacfb063972f57fa6"
+  },
+  {
+    "name": "(Repost) PurpDark/Light",
+    "description": "Supports both, dark and light mode",
+    "authors": [
+      {
+        "name": "vve1",
+        "id": "670986272377929743"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/vorlie/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/vorlie/VendettaThemes/main/Purpdark/Purpdark_v2.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "f1cd62e0b0b4e1bae9737730a0acb8515b1960f5"
+  },
+  {
+    "name": "[Rebrand] Aetherion 2.0",
+    "description": "Install: (Themes+ supported).",
+    "authors": [
+      {
+        "name": "asterionvt",
+        "id": "183251375193456641"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/LYNK-INCUU/Cosmicka",
+    "link": "https://raw.githubusercontent.com/LYNK-INCUU/Cosmicka/main/Aetherion-Vendetta2.0.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "49580fe247b3ba5bf61663eb4143b0608f29a049"
+  },
+  {
+    "name": "[Rebrand] Aetherion 2.0 [BG VER]",
+    "description": "Install: (Themes+ supported).",
+    "authors": [
+      {
+        "name": "asterionvt",
+        "id": "183251375193456641"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/LYNK-INCUU/Cosmicka",
+    "link": "https://raw.githubusercontent.com/LYNK-INCUU/Cosmicka/main/Aetherion-Vendetta-BG.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "0efaee59ba913a5729ebf76e5bc59e328170093f"
+  },
+  {
+    "name": "[Themes+] MediumSlateBlue",
+    "description": "",
+    "authors": [
+      {
+        "name": "vve1",
+        "id": "670986272377929743"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/vorlie/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/vorlie/VendettaThemes/main/MediumSlateBlue/MediumSlateBlue.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "ff4e884bb55f92a6ee61648026d7c8c797794a98"
+  },
+  {
+    "name": "[Themes+] Nord",
+    "description": "",
+    "authors": [
+      {
+        "name": "vve1",
+        "id": "670986272377929743"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/vorlie/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/vorlie/VendettaThemes/main/Nord/nord.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "a87ef9a16ddcef7f1f4501710118f6de5a467ceb"
+  },
+  {
+    "name": "[Themes+] RedFeathers",
+    "description": "",
+    "authors": [
+      {
+        "name": "vve1",
+        "id": "670986272377929743"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/vorlie/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/vorlie/VendettaThemes/main/RedFeathers/redfeathers.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "63a361865496f602305a5f082bc51bde47bed346"
+  },
+  {
+    "name": "[Themes+] SeaGreen",
+    "description": "",
+    "authors": [
+      {
+        "name": "vve1",
+        "id": "670986272377929743"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/vorlie/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/vorlie/VendettaThemes/main/SeaGreen/SeaGreen.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "2b2fc9ff02a27d4a2467248c7ec6b0e392843474"
+  },
+  {
+    "name": "Alicorn V1",
+    "description": "Alicorn",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Mazeriio4833/vd-themes",
+    "link": "https://raw.githubusercontent.com/Mazeriio4833/vd-themes/main/Alicorn.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "0b6f568faa42cee702c9962942b8cd129b692aa7"
+  },
+  {
+    "name": "Alicorn V2",
+    "description": "A purple, magic and cute theme made with <3",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Mazetta/vd-themes",
+    "link": "https://raw.githubusercontent.com/Mazetta/vd-themes/main/Alicorn-V2.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "76ef2d314c465d8a17b880a3eca5376dcb1b51b2"
+  },
+  {
+    "name": "Alicorn V2 [BG VER]",
+    "description": "A purple, magic and cute theme made with <3",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Mazetta/vd-themes",
+    "link": "https://raw.githubusercontent.com/Mazetta/vd-themes/main/Alicorn-V2-without-bg.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "e2c230ed8ccd90404e12e225505908192b5272f8"
+  },
+  {
+    "name": "Amoled Orange Mountains",
+    "description": "Amoled Orange Mountains",
+    "authors": [
+      {
+        "name": "wizzytv",
+        "id": "715443625580036128"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes/main/AmoledOrangeMountains/amoled-orange-mountains.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "9b43c04af1875129cd78a41abb3828e69eee7c28"
+  },
+  {
+    "name": "Amora",
+    "description": "Purple theme with pinkish-red accents and pastel colors. Original theme by owozsh (Themes+ supported).",
+    "authors": [
+      {
+        "name": "cynthia",
+        "id": "150745989836308480"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Cynosphere/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Cynosphere/VendettaThemes/master/Amora.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "d587414ccf391d96f8d076c161ba5b9744eb7b83"
+  },
+  {
+    "name": "Amora Focus",
+    "description": "Dark theme with purple accents and pastel colors. Original theme by owozsh. (Themes+ supported).",
+    "authors": [
+      {
+        "name": "cynthia",
+        "id": "150745989836308480"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Cynosphere/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Cynosphere/VendettaThemes/master/AmoraFocus.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "a83c7eb7065f158b2da9e67b6f0ec5a0785d175d"
+  },
+  {
+    "name": "AnimeVision",
+    "description": "A Dark Blue theme based on nothing (Themes+ supported).",
+    "authors": [
+      {
+        "name": "sleepingfatcat",
+        "id": "908089062294949888"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/denji6969/AnimeVision",
+    "link": "https://raw.githubusercontent.com/denji6969/AnimeVision/main/AnimeVisionVendetta-no-bg.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "b582cfabcfcdffc9866e22866feaeafb95fe9fec"
+  },
+  {
+    "name": "AnimeVision [ANIMEVISIONVENDETTA]",
+    "description": "A Dark Blue theme based on nothing (Themes+ supported).",
+    "authors": [
+      {
+        "name": "sleepingfatcat",
+        "id": "908089062294949888"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/denji6969/AnimeVision",
+    "link": "https://raw.githubusercontent.com/denji6969/AnimeVision/main/AnimeVisionVendetta.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "96e6ce90f34f2c74e568883c49e1a9196acdfa60"
+  },
+  {
+    "name": "AnimeVision [ICONSAX]",
+    "description": "A Dark Blue theme based on nothing (Themes+ supported).",
+    "authors": [
+      {
+        "name": "sleepingfatcat",
+        "id": "908089062294949888"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/denji6969/AnimeVision",
+    "link": "https://raw.githubusercontent.com/denji6969/AnimeVision/main/AnimeVision-iconsax.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "d8fbf354d7dc320d31d8b3839a94a038d48ae4ec"
+  },
+  {
+    "name": "AnimeVision [MD3]",
+    "description": "A Dark Blue theme based on nothing (Themes+ supported).",
+    "authors": [
+      {
+        "name": "sleepingfatcat",
+        "id": "908089062294949888"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/denji6969/AnimeVision",
+    "link": "https://raw.githubusercontent.com/denji6969/AnimeVision/main/AnimeVision-md3.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "373fd94042504faf4485b706964fca21689c6491"
+  },
+  {
+    "name": "Ataraxia",
+    "description": "Ataraxia (Themes+ supported).",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/Ataraxia.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "0cbfec1829ab4e5337aba2a577bc6bd658ab3693"
+  },
+  {
+    "name": "BlueySkies",
+    "description": "\"MaroonSkies, but blue.\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/BlueySkies.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "3dcb34dc58d9f72f7cb7e669e06b5499a1a9a22f"
+  },
+  {
+    "name": "Catppuccin Frappe",
+    "description": "Catppuccin Frappe :3 a cute pastel theme based on a rather well known color palette",
+    "authors": [
+      {
+        "name": "zovvvvy",
+        "id": "499287211381096458"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/luzikii/useless-shit",
+    "link": "https://raw.githubusercontent.com/luzikii/useless-shit/main/CatppuccinFrappe.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "441a5624faf5dfa958a582cfef6ac56e001efe99"
+  },
+  {
+    "name": "Catppuccin Latte",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_mauve.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "680b7a59c824d303bfe763732993adf801fc4d9c"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE BLUE]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_blue.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "a4c012c6e1141896c41398fc2a0d2edd97367321"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE FLAMINGO]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_flamingo.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "2b00f4344cfd1c36948aa36751f484bfd187722b"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE GREEN]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_green.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "1f6732313beb34ac0c7a58c448d1264cf3f84236"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE LAVENDER]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_lavender.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "3ebbdf29704f231a2e67f69b91f81bf4a0e90279"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE MAROON]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_maroon.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "103dbc432de3786b694a468d925ab20df2e1a7e6"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE PEACH]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_peach.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "a2375e3ac9d8383ced36c418492e83c9e09886f7"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE PINK]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_pink.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "ed8b2977e613bbf8509ddad32e1a5af284f21aab"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE RED]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_red.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "6af4c9e4dcd703ef57b8e2bf9da3bc39fc28f8ac"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE ROSEWATER]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_rosewater.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "fbaca0fb11ae0e4bd37beee4a0e8e6e3eae7581b"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE SAPPHIRE]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_sapphire.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "27b412b26488aeb709bb46409be9db1f76c3af1a"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE SKY]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_sky.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "ce1da82a7286a3a8c3e653fd45cdf48e333c43ef"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE TEAL]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_teal.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "97feb864cdc4cc096662fd998d6f665add809ada"
+  },
+  {
+    "name": "Catppuccin Latte [CTP LATTE YELLOW]",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/Latte/ctp_latte_yellow.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "f42b58a792cc54230d6fb6a8f9e7bc78faa7d9a8"
+  },
+  {
+    "name": "Catppuccin Macchiato",
+    "description": "😸 Soothing pastel theme for the high-spirited!",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/macchiato/Catppuccin%20macchiato.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "7e85ec179918f21fb9078542bfab5c81d2f99ea0"
+  },
+  {
+    "name": "catppuccin mocha",
+    "description": "Catppuccin mocha",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes",
+    "link": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes/main/CatppuccinMochaMauve.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "8cf553f9168393e0d3c0f6a3770885177ed04922"
+  },
+  {
+    "name": "catppuccin mocha",
+    "description": "Your favorite cute theme, now even darker!",
+    "authors": [
+      {
+        "name": "mollyvita",
+        "id": "920329543187832912"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/riichi67/vendetta",
+    "link": "https://raw.githubusercontent.com/riichi67/vendetta/main/mocha/red.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "64b06cabcff109dc629cc6c09bf525d85a795062"
+  },
+  {
+    "name": "catppuccin mocha [CATPPUCCINMOCHAGREEN]",
+    "description": "Catppuccin mocha",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes",
+    "link": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes/main/CatppuccinMochaGreen.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "e5b28bb7f96dc10880c01c37799cedfbfb750cce"
+  },
+  {
+    "name": "catppuccin mocha [CATPPUCCINMOCHAPINK]",
+    "description": "Catppuccin mocha",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes",
+    "link": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes/main/CatppuccinMochaPink.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "af1b0ced06eece66243e7f25258596bf0a5bae1b"
+  },
+  {
+    "name": "catppuccin mocha [CATPPUCCINMOCHASAPPHIRE]",
+    "description": "Catppuccin mocha",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes",
+    "link": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes/main/CatppuccinMochaSapphire.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "c86515ed15aadb7184043918eb42498be4908ae4"
+  },
+  {
+    "name": "catppuccin mocha [CATPPUCCINMOCHATEAL]",
+    "description": "Catppuccin mocha",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes",
+    "link": "https://raw.githubusercontent.com/lizzlesss/vendetta-themes/main/CatppuccinMochaTeal.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "4fe9cc89bf57d174d1406ab8f7c5249da1980f7e"
+  },
+  {
+    "name": "Catty",
+    "description": "\"because cat :3\" (Themes+ supported).",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/Catty.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "0e9645fb358ec2b7ae26486c88cc453cd48c85a1"
+  },
+  {
+    "name": "CityFog",
+    "description": "A cyberpunk-esque color theme, designed to give a cold but lively feel. (Themes+ supported).",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord/main/Vendetta/CityFog/CityFog.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "cc7d45184fd3885e0fc291f3457ec4c5895f1841"
+  },
+  {
+    "name": "Clear Vision 💙",
+    "description": "Clear Vision paints serenity across the canvas of our Discord realm. (Themes+ supported).",
+    "authors": [
+      {
+        "name": "taki_shiwa",
+        "id": "466968658997149706"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/TakiShiwa/Themes",
+    "link": "https://raw.githubusercontent.com/TakiShiwa/Themes/main/ClearVision/Vendetta/ClearVision.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "cf457aae1467e2b14794962bd3adcebd90c8af49"
+  },
+  {
+    "name": "Cozy202K",
+    "description": "A color scheme based on LeoRicharte's concept art:",
+    "authors": [
+      {
+        "name": "vozy",
+        "id": "359175647257690113"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/SlippingGittys-Discord-Themes/Vozdetta",
+    "link": "https://raw.githubusercontent.com/SlippingGittys-Discord-Themes/Vozdetta/main/Cozy202K.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "c3a2163d514e410911a2583d9c459698054dee45"
+  },
+  {
+    "name": "Cream Yellow 🍦",
+    "description": "A creamy yellow theme for your Vendetta. (Themes+ supported).",
+    "authors": [
+      {
+        "name": "taki_shiwa",
+        "id": "466968658997149706"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/TakiShiwa/Themes",
+    "link": "https://raw.githubusercontent.com/TakiShiwa/Themes/main/GruvYellow/Vendetta/CreamYellow.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "512fd659cefffe532c1265ab64a0bfe4250d6017"
+  },
+  {
+    "name": "Cream Yellow 🍦 [GRUVYELLOW]",
+    "description": "A creamy yellow theme for your Vendetta. (Themes+ supported).",
+    "authors": [
+      {
+        "name": "taki_shiwa",
+        "id": "466968658997149706"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/TakiShiwa/Themes",
+    "link": "https://raw.githubusercontent.com/TakiShiwa/Themes/main/GruvYellow/Vendetta/GruvYellow.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "f80fa7e9433dbf25300ac9cf32e77ff746914644"
+  },
+  {
     "name": "Cybercord 2077 v2",
     "description": "A complete remake of my previous CP2077 theme, i added and changed much stuff + FINALLY the theme supports NewUI.",
     "authors": [
@@ -8,27 +792,1243 @@
         "id": "499287211381096458"
       }
     ],
-    "source": "https://github.com/luzikii/vendetta",
+    "source": "https://raw.githubusercontent.com/luzikii/vendetta",
     "link": "https://raw.githubusercontent.com/luzikii/vendetta/main/CP2077HUD.json",
     "vendetta": {
       "icon": "ic_theme_24px"
     },
-    "hash": "TODO_GENERATE"
+    "hash": "ee03addb4007143afb262105632b291a2233ae35"
+  },
+  {
+    "name": "Dark Vendetta (Almost fixed)",
+    "description": "A \"improved\" dark theme for Discord. Original theme by ignacio. Restored and maintained by Kitomanari.",
+    "authors": [
+      {
+        "name": "kitosight",
+        "id": "437154602626973697"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Kitomanari/vendetta-stuff",
+    "link": "https://raw.githubusercontent.com/Kitomanari/vendetta-stuff/main/themes/dark-vendetta/theme.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "d2ebe478371f1331324db0cddb6f3cd479452b0c"
+  },
+  {
+    "name": "Dark Vendetta (Almost fixed) [LEGACY]",
+    "description": "A \"improved\" dark theme for Discord. Original theme by ignacio. Restored and maintained by Kitomanari.",
+    "authors": [
+      {
+        "name": "kitosight",
+        "id": "437154602626973697"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Kitomanari/vendetta-stuff",
+    "link": "https://raw.githubusercontent.com/Kitomanari/vendetta-stuff/main/themes/dark-vendetta/theme-legacy.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "6b89626dd16681673ba1264381e9171bde943009"
+  },
+  {
+    "name": "DarkBlueMono",
+    "description": "DarkBlueMono",
+    "authors": [
+      {
+        "name": "panniku",
+        "id": "703634705152606318"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Panniku/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Panniku/VendettaThemes/main/themes/darkbluemono.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "339f7e570620c75ae98dea388c8aaae261292edd"
+  },
+  {
+    "name": "Dimmed Greyish",
+    "description": "Dimmed Greyish Theme",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/paratmr/Vendetta-Themes",
+    "link": "https://raw.githubusercontent.com/paratmr/Vendetta-Themes/main/Dimmed%20Greyish.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "d7e0330f15488b8d575815d3f7fa97d131b2c9f9"
+  },
+  {
+    "name": "Discord's Blurple",
+    "description": "\"A theme based on Discord's accent color, Blurple.\" (Themes+ supported).",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/Discord'sBlurple.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "81f6ea7b69602611ea11e5711ebb788f7fb3035a"
+  },
+  {
+    "name": "Dracula V2",
+    "description": "A simple theme using the dracula color scheme 🎨",
+    "authors": [
+      {
+        "name": "fatdawlf",
+        "id": "332940870150258688"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Azakidev/dracula-aliucordRN",
+    "link": "https://raw.githubusercontent.com/Azakidev/dracula-aliucordRN/vendetta/Dracula.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "682987bba441bc1d2a72f5a7f345c79386a2b605"
+  },
+  {
+    "name": "Emerald Peppermint",
+    "description": "Emerald Peppermint",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/Emerald%20Peppermint_poly.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "e39b79dc061c4c283432ead60490ff06ada5998c"
+  },
+  {
+    "name": "Eris",
+    "description": "Eris",
+    "authors": [
+      {
+        "name": "deoptimize",
+        "id": "327065865201909762"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/nikosszzz/discordrn-themes",
+    "link": "https://raw.githubusercontent.com/nikosszzz/discordrn-themes/main/Vendetta/Eris.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "7ace0bf9515aa877534393438238935d29781dbd"
+  },
+  {
+    "name": "Evening",
+    "description": "You ever looked outside around supper time and thought, \"dang, i kinda wish discord looked like that...\". Well look outside no more c:",
+    "authors": [
+      {
+        "name": "vozy",
+        "id": "359175647257690113"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/SlippingGittys-Discord-Themes/Vozdetta",
+    "link": "https://raw.githubusercontent.com/SlippingGittys-Discord-Themes/Vozdetta/main/Evening.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "230bc74c92cbf0eb721fab06689379729b307171"
   },
   {
     "name": "Eye Candy",
-    "description": "Port of HaniBee's eye candy theme for Aliucord. Theme also uses themes+ (https://vendetta.nexpid.xyz/themes-plus/).",
+    "description": "Port of HaniBee's eye candy theme for Aliucord (Themes+ supported).",
     "authors": [
       {
         "name": "mudrhiod",
         "id": "807170846497570848"
       }
     ],
-    "source": "https://github.com/Quinxxxx/Discord-themes",
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes",
     "link": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes/main/Vendetta/Eye_candy.json",
     "vendetta": {
       "icon": "ic_theme_24px"
     },
-    "hash": "TODO_GENERATE"
+    "hash": "46bc1bbacbdff29b574ee9fcdce644b93cd5e2e9"
+  },
+  {
+    "name": "Fade",
+    "description": "I did not go over everything for the image background one",
+    "authors": [
+      {
+        "name": "sqt_",
+        "id": "532659532170657792"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/squat9042/vendetta-themes",
+    "link": "https://raw.githubusercontent.com/squat9042/vendetta-themes/main/Fade.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "765b913844ad3fbd30cf9ce988045f4c1a2c1283"
+  },
+  {
+    "name": "Fade [FADE%20WITH%20IMAGE]",
+    "description": "I did not go over everything for the image background one",
+    "authors": [
+      {
+        "name": "sqt_",
+        "id": "532659532170657792"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/squat9042/vendetta-themes",
+    "link": "https://raw.githubusercontent.com/squat9042/vendetta-themes/main/Fade%20with%20image.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "c14be0bb5881e9f9d852f1ef8a725d46d14ac5f1"
+  },
+  {
+    "name": "Gold Amoled Theme",
+    "description": "Download",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/paratmr/Vendetta-Themes",
+    "link": "https://raw.githubusercontent.com/paratmr/Vendetta-Themes/main/Gold%20Amoled%20Theme.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "aada9eba0c4a1a49de9ff4c6f13693d64ea5ca45"
+  },
+  {
+    "name": "Grass (outdated)",
+    "description": "A dark green theme that brings grass to your display so you don't need to go out to touch grass; using my dynamic material you colors",
+    "authors": [
+      {
+        "name": "traxtrl",
+        "id": "459444758561947659"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/TraxTRL/discord-themes",
+    "link": "https://raw.githubusercontent.com/TraxTRL/discord-themes/main/GrassGreen.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "18fb1af9b15f4d148c925526970a4b330de6877a"
+  },
+  {
+    "name": "Green Apple - Original",
+    "description": "🍏 A theme based on symbol color of nature - Green, but to make it more sweet with apple!",
+    "authors": [
+      {
+        "name": "lisa4511",
+        "id": "1095772586077597909"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/laser4/Green-Apple",
+    "link": "https://raw.githubusercontent.com/laser4/Green-Apple/main/greenapple.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "4f33a4cbf85c3e496b87f25cbc8b3b32a899f458"
+  },
+  {
+    "name": "Greenfinch by Siwe",
+    "description": "Greenfinch",
+    "authors": [
+      {
+        "name": "siwe",
+        "id": "487876087330635810"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/S-Semyon/Siwedetta",
+    "link": "https://raw.githubusercontent.com/S-Semyon/Siwedetta/main/Themes/Greenfinch.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "2eb74ef6cf311724c9e1488edce3ede15d4e6c73"
+  },
+  {
+    "name": "Gruvdetta",
+    "description": "Gruvbox in Discord mobile based on Moodl's rosepine theme (Themes+ supported).",
+    "authors": [
+      {
+        "name": "1_mmm",
+        "id": "602832090949746710"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/1MMM10/Gruvdetta",
+    "link": "https://raw.githubusercontent.com/1MMM10/Gruvdetta/main/gruvboxbg.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "6d07e67237e54b031a0648e0b2290ce708a5ca8a"
+  },
+  {
+    "name": "Gruvdetta [GRUVBOX]",
+    "description": "Gruvbox in Discord mobile based on Moodl's rosepine theme (Themes+ supported).",
+    "authors": [
+      {
+        "name": "1_mmm",
+        "id": "602832090949746710"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/1MMM10/Gruvdetta",
+    "link": "https://github.com/1MMM10/Gruvdetta/raw/main/gruvbox.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "7fd1f76f65b6edab995ce8b700f1f8a2d74d84fa"
+  },
+  {
+    "name": "It's Ourple!",
+    "description": "A simple purple theme for anyone who has wanted one like it! Tabsv2 compatible! Wow! (Themes+ supported).",
+    "authors": [
+      {
+        "name": "itskking",
+        "id": "151413187344990208"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/KKingCodesForFun/Themes",
+    "link": "https://raw.githubusercontent.com/KKingCodesForFun/Themes/main/Theme.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "e8cd9480723aab8d9d6d96844e16db77b433700c"
+  },
+  {
+    "name": "Katana",
+    "description": "Katana",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/Katana.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "e67ff8c0ad490916857e1277761766f2b7b899a8"
+  },
+  {
+    "name": "Krimson Scarlet - Original",
+    "description": "The color crimson is bold, passionate, and attention-grabbing, evoking feelings of energy, excitement, and warmth.",
+    "authors": [
+      {
+        "name": "Deleted User",
+        "id": "456226577798135808"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/laser4/Krimson-Scarlet",
+    "link": "https://raw.githubusercontent.com/laser4/Krimson-Scarlet/main/krimson.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "8e743e872e9b5dcd77ef3f8a4d9babf682563806"
+  },
+  {
+    "name": "Lavender Heaven",
+    "description": "Lavender Heaven",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/Lavender%20Heaven_poly.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "948ee44ba55b0019625ec82ab77c06e78e62269d"
+  },
+  {
+    "name": "M3-BlueDarkDefault",
+    "description": "M3-BlueDarkDefault",
+    "authors": [
+      {
+        "name": "panniku",
+        "id": "703634705152606318"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Panniku/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Panniku/VendettaThemes/main/themes/materialyoubluedarkdefault.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "510efc34edcc9b62469c7b751de682b936f2f7f3"
+  },
+  {
+    "name": "Maggie's Purple",
+    "description": "Download (Themes+ supported).",
+    "authors": [
+      {
+        "name": "maggie.pi",
+        "id": "330299657458679821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/maggster165/vendettathemes",
+    "link": "https://raw.githubusercontent.com/maggster165/vendettathemes/main/maggiespurple.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "51149fe2bd90dfab805349b3365b84988345e211"
+  },
+  {
+    "name": "MaroonSkies",
+    "description": "\"Maroon colored theme for Vendetta\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/MaroonSkies.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "051dc0303296c8482c5619db44bbdb769c317caa"
+  },
+  {
+    "name": "Material Discord",
+    "description": "Material You Discord Theme for mobile (Themes+ supported).",
+    "authors": [
+      {
+        "name": "wilk22",
+        "id": "543154693984223245"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Wilk-22/Material-Discord-Mobile",
+    "link": "https://raw.githubusercontent.com/Wilk-22/Material-Discord-Mobile/main/Material-Discord-Mobile.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "5887c0077ebe672120da622ea68ed79a94c1d894"
+  },
+  {
+    "name": "Midnight",
+    "description": "Midnight",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/Midnight_poly.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "cf1989070665ac0419ff271b0b4e211700589135"
+  },
+  {
+    "name": "Midnight Espresso",
+    "description": "Midnight-Espresso",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/Midnight-Espresso.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "488809b3a290d242a165e565010fcfd442fc24d8"
+  },
+  {
+    "name": "Midnight Plus",
+    "description": "Midnight (Themes+ supported).",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme-Plus",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme-Plus/main/Midnight%20Plus.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "b2399ba953d8a7df089b27b05c0a3f6471b1d554"
+  },
+  {
+    "name": "MintY Green",
+    "description": "MintY Green (Themes+ supported).",
+    "authors": [
+      {
+        "name": "panniku",
+        "id": "703634705152606318"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Panniku/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Panniku/VendettaThemes/main/themes/minty-green.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "6b826f78b1feb5b96bf7d9872ba603440a9bdede"
+  },
+  {
+    "name": "Monokai Night",
+    "description": "A dark and minimalistic theme based on the Monokai-inspired Visual Studio Code theme, Monokai Night.",
+    "authors": [
+      {
+        "name": "swiftui",
+        "id": "890228870559698955"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Fierdetta/themes",
+    "link": "https://raw.githubusercontent.com/Fierdetta/themes/main/monokai-night.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "7158c586ffdf03aca2691e85a7cb475d7e041bf4"
+  },
+  {
+    "name": "Night Life",
+    "description": "A dark gray theme with purple accent",
+    "authors": [
+      {
+        "name": "s9teen",
+        "id": "461299396844191745"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/S9Teen/Themes",
+    "link": "https://raw.githubusercontent.com/S9Teen/Themes/main/Night%20Life.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "3a0d5d6dcd075d909cf94fb90a9c32a02d39d1de"
+  },
+  {
+    "name": "Nord - in light mode",
+    "description": "This theme has Themes+ support, install it here: (Themes+ supported).",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes/main/Vendetta/Nord/light_nord.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "ab3a31f2db90cd94191e743d01a0df60412b6ce4"
+  },
+  {
+    "name": "OneColor",
+    "description": "OneColor",
+    "authors": [
+      {
+        "name": "wizzytv",
+        "id": "715443625580036128"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes/main/OneColor/onecolor.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "c597a7a2a13f1fbdd6b9b20c71eaa6fcc32ae816"
+  },
+  {
+    "name": "Orange Mountains",
+    "description": "Orange Mountains",
+    "authors": [
+      {
+        "name": "wizzytv",
+        "id": "715443625580036128"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes/main/OrangeMountains/orangemountains.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "83373ce5d441d347a8c85fdadbe8bf47c2420f80"
+  },
+  {
+    "name": "OrangeOLED",
+    "description": "OrangeOLED",
+    "authors": [
+      {
+        "name": "wizzytv",
+        "id": "715443625580036128"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes/main/OrangeOLED/OrangeOLED.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "a57368aaac8a8372b01e1cc74177b29bf76e646f"
+  },
+  {
+    "name": "Orchid Love",
+    "description": "Orchid Love (Themes+ supported).",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/Orchid.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "cba9995ef0f2895b0616dc917588e2ff0fba3ad1"
+  },
+  {
+    "name": "Origins - Blue",
+    "description": "\"1 of 4, randomly selected colors from the members of Sound's World.\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/Origins_Blue.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "a706fabdd3fd1aa4d8f615ddd10dcecfadf9be9b"
+  },
+  {
+    "name": "Origins - Lemon Yellow",
+    "description": "\"3 of 4, randomly selected colors from the members of Sound's World.\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/Origins_Lemon_Yellow.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "2e6c5cff25ee1ae067877b3c35b658173ca9d08f"
+  },
+  {
+    "name": "Origins - Rose Red",
+    "description": "\"2 of 4, randomly selected colors from the members of Sound's World.\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/Origins_Rose_Red.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "83b6d1374ac6e5b950aabaeae5a8bf19dcdde5e7"
+  },
+  {
+    "name": "Orion",
+    "description": "This is a \"somewhat\" space inspired theme,made to be comfy on the eyes at night and have good overall visibility!",
+    "authors": [
+      {
+        "name": "getsixvixey",
+        "id": "354936587186077707"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/FelixSvetloozerskiy/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/FelixSvetloozerskiy/VendettaTheme/main/Orion.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "82e8ebecd4ce5044cde407bbf92e480835f6758b"
+  },
+  {
+    "name": "Pebble",
+    "description": "Pebble",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/Pebble.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "9ad8d444c005a0b6764c168bfdb1cbd25a384666"
+  },
+  {
+    "name": "Pixel City",
+    "description": "Pixel City",
+    "authors": [
+      {
+        "name": "wizzytv",
+        "id": "715443625580036128"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes/main/PixelCity/pixelcity.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "66aefeed610442a01e063db3dbcdffd2dd0cfbdb"
+  },
+  {
+    "name": "Pixel City Lite",
+    "description": "Pixel City Lite",
+    "authors": [
+      {
+        "name": "wizzytv",
+        "id": "715443625580036128"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes/main/PixelCityLite/pixelcity-lite.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "a6e85512d8226582c56d381ff8c3a374aac24fbe"
+  },
+  {
+    "name": "Pixel Nightz",
+    "description": "A dark lavender theme based around my homescreen setup",
+    "authors": [
+      {
+        "name": "zovvvvy",
+        "id": "499287211381096458"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/olobia/themes",
+    "link": "https://raw.githubusercontent.com/olobia/themes/main/pixelout.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "70dad66588e0467d22584b31f96a955e4d364698"
+  },
+  {
+    "name": "Pixel Nightz [BG VER]",
+    "description": "A dark lavender theme based around my homescreen setup",
+    "authors": [
+      {
+        "name": "zovvvvy",
+        "id": "499287211381096458"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/olobia/themes",
+    "link": "https://raw.githubusercontent.com/olobia/themes/main/pixelout-bg.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "680811f009cba2b08aba374801545cd58a6b7c65"
+  },
+  {
+    "name": "Primrose",
+    "description": "A theme I created being inspired by my favorite colors. (Themes+ supported).",
+    "authors": [
+      {
+        "name": "myrayuo",
+        "id": "940062409618497630"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/myrayuoo/Primrose",
+    "link": "https://raw.githubusercontent.com/myrayuoo/Primrose/main/Primrose.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "284b686515c18bc3a548f66605b33c38618a5e31"
+  },
+  {
+    "name": "PurpDark V3",
+    "description": "Raw link:",
+    "authors": [
+      {
+        "name": "vve1",
+        "id": "670986272377929743"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/vorlie/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/vorlie/VendettaThemes/main/Purpdark/PurpDark_BG/Purpdark_v3.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "844f8b44259b8b662d6dc219589838450b2c3180"
+  },
+  {
+    "name": "Purpl",
+    "description": "\"A purple theme based off my Material You™ color scheme.\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/Purpl.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "70158f423c958f83c50156f7e1d24ce7e61c41af"
+  },
+  {
+    "name": "Purple Galaxy",
+    "description": "Purple Galaxy",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/PurpleGalaxy.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "6a374f60c2c2a15d1cbfe1665f9748acb114fa47"
+  },
+  {
+    "name": "Purple Kitty",
+    "description": "Purple Kitty",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/PurpleKittyVd.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "3ea5dde858ad82d495e831df075b7731381e8779"
+  },
+  {
+    "name": "Purple Mountains",
+    "description": "Purple Mountains",
+    "authors": [
+      {
+        "name": "wizzytv",
+        "id": "715443625580036128"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes/main/PurpleMountains/purple-mountains.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "02e74b59345e24e4c452fdc0dab0d9598f8920e9"
+  },
+  {
+    "name": "Ratio",
+    "description": "In a cluttered world, simplicity shines. A minimalistic theme cuts distractions, revealing what truly matters. It guides us to clarity and purpose. (Themes+ supported).",
+    "authors": [
+      {
+        "name": "taki_shiwa",
+        "id": "466968658997149706"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/TakiShiwa/Themes",
+    "link": "https://raw.githubusercontent.com/TakiShiwa/Themes/main/Ratio/Vendetta/Ratio.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "2c086a2aab2a6a9fd1a45f3dfe01e8e0838c4950"
+  },
+  {
+    "name": "Rebel",
+    "description": "A theme based on Cyberpunk 2077 UI",
+    "authors": [
+      {
+        "name": "zovvvvy",
+        "id": "499287211381096458"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/olobia/iztejdziurywyskoczyeminem",
+    "link": "https://raw.githubusercontent.com/olobia/iztejdziurywyskoczyeminem/main/cybpunk2077.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "6bfc9f0e729cda79d06c6c13746e668d5f5e150b"
+  },
+  {
+    "name": "Rogue",
+    "description": "Bg: #101010 & #0d0d0d",
+    "authors": [
+      {
+        "name": "cyriotic3",
+        "id": "612070016845742083"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/cyriotic3/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/cyriotic3/VendettaThemes/main/rogue.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "d4203c946c7877c96ea13a0ec436fb65ece26945"
+  },
+  {
+    "name": "Rogue+",
+    "description": "Bg: #000000",
+    "authors": [
+      {
+        "name": "cyriotic3",
+        "id": "612070016845742083"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/cyriotic3/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/cyriotic3/VendettaThemes/main/rogueplus.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "99cf3b8bb67ce73ea2561540064706ea3f72e83d"
+  },
+  {
+    "name": "RosieSkies",
+    "description": "\"The same, but Rosiefied™ :3\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/RosieSkies.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "ba57d93f120998f7c8b6e26745827d7d5e101c98"
+  },
+  {
+    "name": "Rosé Pine",
+    "description": "Rose Pine - (Themes+ supported).",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes/main/Vendetta/RosePine/rosepine.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "9184b6807ad58b7a8c25167077307ff28ef5e0f4"
+  },
+  {
+    "name": "Rosé Pine [DAWN]",
+    "description": "Rose Pine - (Themes+ supported).",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes/main/Vendetta/RosePine/rosepinedawn.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "b23b9e02858101a57cd83eff4b0936c72f1e06b3"
+  },
+  {
+    "name": "Rosé Pine [MOON]",
+    "description": "Rose Pine - (Themes+ supported).",
+    "authors": [
+      {
+        "name": "moodzz1",
+        "id": "716941151386599464"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes",
+    "link": "https://raw.githubusercontent.com/Quinxxxx/Discord-themes/main/Vendetta/RosePine/rosepinemoon.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "b851fff11940cbf49e25d15c808d2215970f14bb"
+  },
+  {
+    "name": "RozeQuartz",
+    "description": "Super coollllll theme",
+    "authors": [
+      {
+        "name": "mattymachine",
+        "id": "755950362342457384"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Mateusussy210/explod",
+    "link": "https://raw.githubusercontent.com/Mateusussy210/explod/main/Roze%20Quartz_poly.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "f0d7f2a21abe04e6d14ec135935350e83673e2d3"
+  },
+  {
+    "name": "Scarlet Love ❤",
+    "description": "Shades of Red, Shades of Love: Enter Scarlet's Embrace. (Themes+ supported).",
+    "authors": [
+      {
+        "name": "taki_shiwa",
+        "id": "466968658997149706"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/TakiShiwa/Themes",
+    "link": "https://raw.githubusercontent.com/TakiShiwa/Themes/main/ScarletLove/Vendetta/ScarletLove.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "752faa3d49a0fee91cabdff2fe61d4342c91dbc4"
+  },
+  {
+    "name": "Silver Sliver - Original",
+    "description": "A theme based on Silver color :)",
+    "authors": [
+      {
+        "name": "lisa4511",
+        "id": "1095772586077597909"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/laser4/silver-sliver",
+    "link": "https://raw.githubusercontent.com/laser4/silver-sliver/main/silversliver.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "21979041b6300b73cda99aab4cf99da52d73eae0"
+  },
+  {
+    "name": "Strawberry Cheesecake (outdated)",
+    "description": "A theme using real cheesecake as main color and real strawberries as accent. Don't question it, just enjoy!",
+    "authors": [
+      {
+        "name": "traxtrl",
+        "id": "459444758561947659"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/TraxTRL/discord-themes",
+    "link": "https://raw.githubusercontent.com/TraxTRL/discord-themes/main/StrawberryCheesecake.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "e10d8e1d78d2e5a50ea9c291cf57d3f9d70cb4e4"
+  },
+  {
+    "name": "TheEveningSkies",
+    "description": "\"As if you're staring at the sunset.\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/TheEveningSkies.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "25cdb56a4f813d7f9fa3f52d567b11de3d2dc479"
+  },
+  {
+    "name": "TokyoNight",
+    "description": "A theme based on TokyoNight color scheme",
+    "authors": [
+      {
+        "name": "zovvvvy",
+        "id": "499287211381096458"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/luzikii/vendetta",
+    "link": "https://raw.githubusercontent.com/luzikii/vendetta/main/tokyoNight.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "17641e532c0e3fa18b2cbf9fa97e2b239898c52e"
+  },
+  {
+    "name": "Vendetta Teal 🩵",
+    "description": "An AMOLED theme inspired by Vendetta teal color. (Themes+ supported).",
+    "authors": [
+      {
+        "name": "taki_shiwa",
+        "id": "466968658997149706"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/TakiShiwa/Themes",
+    "link": "https://raw.githubusercontent.com/TakiShiwa/Themes/main/VendettaTeal/Vendetta/AMOLED.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "faef3f8ff4d76270b4f69038d27de9b0cd61d5f6"
+  },
+  {
+    "name": "VioletSkies",
+    "description": "\"Same thing, Same thing.\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/VioletSkies.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "bef5e39ccd110da281d3bb1a23d885b79004c289"
+  },
+  {
+    "name": "Vision",
+    "description": "Vision",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme/main/Vision.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "94b477fd24d5ed401b68939f989fc66f57305d38"
+  },
+  {
+    "name": "Vision Pro",
+    "description": "Vision pro (Themes+ supported).",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme-Plus",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme-Plus/main/Vision%20pro%202.0.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "2f354d4b09fa6b09984af8a151495b40c4cc00b0"
+  },
+  {
+    "name": "Vodka Theme's updated with Theme +",
+    "description": "Midnight-Espresso (Themes+ supported).",
+    "authors": [
+      {
+        "name": "ft.vodka",
+        "id": "1068030255455015013"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme-Plus",
+    "link": "https://raw.githubusercontent.com/VodkaXMartini/VendettaTheme-Plus/main/MidnightEspresso%20Plus.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "9d5d769feccd54be61f4633a9ce1422017751b98"
+  },
+  {
+    "name": "Vulcan",
+    "description": "Vulcan",
+    "authors": [
+      {
+        "name": "wizzytv",
+        "id": "715443625580036128"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes",
+    "link": "https://raw.githubusercontent.com/Wizzy-TV/VendettaThemes/main/Vulcan/vulcan.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "fc45efc88ce0e916dd8299497c6034d3c752af75"
+  },
+  {
+    "name": "Wavy",
+    "description": "\"Perfect for AMOLED screens.\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/Wavy.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "ff251a54193b8400db3fae9fd1b071840c224977"
+  },
+  {
+    "name": "WavyPink",
+    "description": "\"The same, but it's pink :3\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/WavyPink.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "1cc07293c0e8810b94edd4d23b288cbf202789ff"
+  },
+  {
+    "name": "Whatsdetta",
+    "description": "Whatsapp but actually Discord. Or is it?",
+    "authors": [
+      {
+        "name": "sqt_",
+        "id": "532659532170657792"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/squat9042/vendetta-themes",
+    "link": "https://raw.githubusercontent.com/squat9042/vendetta-themes/main/Whatsdetta.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "e5d067bc0b47edc4e07ee31748f7b9206456b9c6"
+  },
+  {
+    "name": "Whatsdetta [MAGENTA%20WHATSDETTA]",
+    "description": "Whatsapp but actually Discord. Or is it?",
+    "authors": [
+      {
+        "name": "sqt_",
+        "id": "532659532170657792"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/squat9042/vendetta-themes",
+    "link": "https://raw.githubusercontent.com/squat9042/vendetta-themes/main/Magenta%20Whatsdetta.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "a291f37b6a6a9106d442f4df2ec344872ac5f86f"
+  },
+  {
+    "name": "諸元 [Shōgen]",
+    "description": "\"A greyish theme with a Red Moon.\"",
+    "authors": [
+      {
+        "name": "drumfu.",
+        "id": "639959347518242821"
+      }
+    ],
+    "source": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes",
+    "link": "https://raw.githubusercontent.com/ArisonID/aris-silly-themes/main/Sh%C5%8Dgen.json",
+    "vendetta": {
+      "icon": "ic_theme_24px"
+    },
+    "hash": "c5556a5de606fb59b5009a76cc63e4523c202c43"
   }
 ]
